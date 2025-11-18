@@ -1,0 +1,25 @@
+Cash Flow Statement,Amount (USD)
+OPERATING ACTIVITIES
+Net Income,-305000
+Adjustments to reconcile net income:
+Depreciation and Amortization,400000
+Changes in working capital:
+Accounts Receivable,-200000
+Inventory,-150000
+Prepaid Expenses,50000
+Accounts Payable,100000
+Accrued Expenses,-50000
+Net Cash from Operating Activities,-155000
+INVESTING ACTIVITIES
+Purchase of Property, Plant & Equipment,-800000
+Purchase of Intangible Assets,-300000
+Sale of Investments,100000
+Net Cash from Investing Activities,-1000000
+FINANCING ACTIVITIES
+Proceeds from Long-term Debt,2000000
+Repayment of Short-term Debt,-500000
+Dividends Paid,-200000
+Net Cash from Financing Activities,1300000
+NET INCREASE (DECREASE) IN CASH,145000
+Cash at Beginning of Period,2355000
+Cash at End of Period,2500000

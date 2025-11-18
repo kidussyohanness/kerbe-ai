@@ -1,0 +1,262 @@
+{
+  "backend": {
+    "passed": 0,
+    "failed": 14,
+    "tests": [
+      {
+        "name": "Health Check",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.942Z"
+      },
+      {
+        "name": "KPIs Endpoint",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.944Z"
+      },
+      {
+        "name": "Analytics Overview",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.945Z"
+      },
+      {
+        "name": "Document Types",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.945Z"
+      },
+      {
+        "name": "Document Health",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.946Z"
+      },
+      {
+        "name": "Datasets List",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.946Z"
+      },
+      {
+        "name": "Active Dataset",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.947Z"
+      },
+      {
+        "name": "Reference Products",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.947Z"
+      },
+      {
+        "name": "Reference Customers",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.948Z"
+      },
+      {
+        "name": "Chat History",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.948Z"
+      },
+      {
+        "name": "Dashboard KPIs",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.949Z"
+      },
+      {
+        "name": "Advanced Analytics",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.949Z"
+      },
+      {
+        "name": "Insights",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.950Z"
+      },
+      {
+        "name": "User Documents",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.950Z"
+      }
+    ]
+  },
+  "frontend": {
+    "passed": 0,
+    "failed": 7,
+    "tests": [
+      {
+        "name": "Landing Page",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": "",
+          "path": "/"
+        },
+        "timestamp": "2025-11-15T03:08:17.951Z"
+      },
+      {
+        "name": "Sign In Page",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": "",
+          "path": "/signin"
+        },
+        "timestamp": "2025-11-15T03:08:17.951Z"
+      },
+      {
+        "name": "Dashboard",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": "",
+          "path": "/dashboard"
+        },
+        "timestamp": "2025-11-15T03:08:17.952Z"
+      },
+      {
+        "name": "Chat Page",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": "",
+          "path": "/dashboard/chat"
+        },
+        "timestamp": "2025-11-15T03:08:17.952Z"
+      },
+      {
+        "name": "Documents Page",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": "",
+          "path": "/dashboard/documents"
+        },
+        "timestamp": "2025-11-15T03:08:17.952Z"
+      },
+      {
+        "name": "Settings Page",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": "",
+          "path": "/dashboard/settings"
+        },
+        "timestamp": "2025-11-15T03:08:17.953Z"
+      },
+      {
+        "name": "API Health Check",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.953Z"
+      }
+    ]
+  },
+  "integration": {
+    "passed": 4,
+    "failed": 2,
+    "tests": [
+      {
+        "name": "Backend-Frontend Connectivity",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.953Z"
+      },
+      {
+        "name": "CORS Configuration",
+        "passed": false,
+        "message": "Failed: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:08:17.954Z"
+      },
+      {
+        "name": "Backend Server File",
+        "passed": true,
+        "message": "Server file exists",
+        "details": {},
+        "timestamp": "2025-11-15T03:08:17.954Z"
+      },
+      {
+        "name": "Frontend App File",
+        "passed": true,
+        "message": "App file exists",
+        "details": {},
+        "timestamp": "2025-11-15T03:08:17.954Z"
+      },
+      {
+        "name": "Backend Package.json",
+        "passed": true,
+        "message": "Version: 1.0.0",
+        "details": {},
+        "timestamp": "2025-11-15T03:08:17.954Z"
+      },
+      {
+        "name": "Frontend Package.json",
+        "passed": true,
+        "message": "Version: 0.1.0",
+        "details": {},
+        "timestamp": "2025-11-15T03:08:17.954Z"
+      }
+    ]
+  },
+  "errors": []
+}

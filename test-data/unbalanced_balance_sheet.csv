@@ -1,0 +1,24 @@
+Company,Acme Tech Solutions Inc.
+Period,Q1 2024
+Date,2024-03-31
+Note,UNBALANCED - Assets != Liabilities + Equity
+
+Account,Amount
+Cash and Cash Equivalents,2800000
+Accounts Receivable,1650000
+Inventory,980000
+Total Current Assets,5430000
+Property Plant and Equipment,7200000
+TOTAL ASSETS,15000000
+Accounts Payable,850000
+Short-term Debt,1100000
+Total Current Liabilities,1950000
+Long-term Debt,4800000
+TOTAL LIABILITIES,6750000
+Share Capital,4500000
+Retained Earnings,4700000
+TOTAL EQUITY,9200000
+
+ERROR: Assets (15,000,000) != Liabilities (6,750,000) + Equity (9,200,000)
+Expected: 15,000,000 = 15,950,000 (UNBALANCED by 950,000)
+

@@ -1,0 +1,12 @@
+SKU,Product Name,Category,Quantity,Unit Cost,Total Value,Min Stock,Status,Last Restocked
+ENT-LIC-001,Enterprise License,Software,50,18000,900000,10,In Stock,2024-01-10
+PREM-SUP-002,Premium Support,Service,100,10000,1000000,20,In Stock,2024-01-15
+CLOUD-SVC-003,Cloud Services,Infrastructure,200,5500,1100000,50,In Stock,2024-02-01
+API-ACC-004,API Access,Service,500,2000,1000000,100,In Stock,2024-02-10
+CONS-HR-005,Consulting Hours,Service,1000,1800,1800000,200,In Stock,2024-02-15
+TRAIN-PKG-006,Training Package,Education,30,8500,255000,5,In Stock,2024-03-01
+INTEG-SVC-007,Integration Services,Service,20,32000,640000,5,Low Stock,2024-03-10
+CUST-DEV-008,Custom Development,Development,10,60000,600000,3,Low Stock,2024-03-15
+MAINT-CON-009,Maintenance Contract,Service,80,12000,960000,15,In Stock,2024-03-20
+DATA-MIG-010,Data Migration,Service,15,20000,300000,5,In Stock,2024-03-25
+

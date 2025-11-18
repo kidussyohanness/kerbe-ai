@@ -1,0 +1,28 @@
+Company,Acme Tech Solutions Inc.
+Period,Q2 2024
+Date,2024-06-30
+
+Account,Amount
+Cash and Cash Equivalents,3200000
+Accounts Receivable,1890000
+Inventory,1150000
+Prepaid Expenses,135000
+Total Current Assets,6375000
+Property Plant and Equipment,7650000
+Intangible Assets,1950000
+Long-term Investments,2850000
+Total Non-Current Assets,12450000
+TOTAL ASSETS,18825000
+Accounts Payable,920000
+Short-term Debt,1050000
+Accrued Expenses,315000
+Total Current Liabilities,2285000
+Long-term Debt,4500000
+Deferred Tax Liabilities,680000
+Total Non-Current Liabilities,5180000
+TOTAL LIABILITIES,7465000
+Share Capital,4500000
+Retained Earnings,6560000
+Other Comprehensive Income,300000
+TOTAL EQUITY,11360000
+

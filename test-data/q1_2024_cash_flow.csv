@@ -1,0 +1,23 @@
+Company,Acme Tech Solutions Inc.
+Period,Q1 2024
+Date,2024-03-31
+
+Account,Amount
+Net Income,189000
+Depreciation and Amortization,145000
+Change in Accounts Receivable,-120000
+Change in Inventory,-85000
+Change in Accounts Payable,65000
+Operating Cash Flow,194000
+Capital Expenditures,-245000
+Investments in Securities,-120000
+Sale of Equipment,35000
+Investing Cash Flow,-330000
+Debt Repayment,-150000
+Debt Issuance,0
+Dividends Paid,0
+Financing Cash Flow,-150000
+Net Cash Flow,-286000
+Beginning Cash Balance,3086000
+Ending Cash Balance,2800000
+

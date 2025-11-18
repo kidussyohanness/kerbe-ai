@@ -1,0 +1,31 @@
+Account,Amount (USD)
+ASSETS
+Current Assets
+Cash and Cash Equivalents,2500000
+Accounts Receivable,1800000
+Inventory,1200000
+Prepaid Expenses,150000
+Total Current Assets,5650000
+Non-Current Assets
+Property, Plant & Equipment,8500000
+Intangible Assets,3200000
+Long-term Investments,2100000
+Total Non-Current Assets,13800000
+TOTAL ASSETS,19450000
+LIABILITIES
+Current Liabilities
+Accounts Payable,950000
+Short-term Debt,1200000
+Accrued Expenses,300000
+Total Current Liabilities,2450000
+Non-Current Liabilities
+Long-term Debt,5500000
+Deferred Tax Liabilities,800000
+Total Non-Current Liabilities,6300000
+TOTAL LIABILITIES,8750000
+EQUITY
+Share Capital,5000000
+Retained Earnings,5200000
+Other Comprehensive Income,500000
+TOTAL EQUITY,10700000
+TOTAL LIABILITIES AND EQUITY,19450000

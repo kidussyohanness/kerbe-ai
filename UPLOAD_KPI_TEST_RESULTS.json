@@ -1,0 +1,608 @@
+{
+  "testUser": "cmgtv2kjt0000sfzqb6d91ez0",
+  "timestamp": "2025-11-15T03:37:17.009Z",
+  "results": {
+    "passed": 16,
+    "failed": 2,
+    "tests": [
+      {
+        "name": "Upload Balance Sheet",
+        "passed": false,
+        "message": "Error: ",
+        "details": {
+          "error": ""
+        },
+        "timestamp": "2025-11-15T03:36:39.368Z"
+      },
+      {
+        "name": "Upload Income Statement",
+        "passed": true,
+        "message": "Status: 200, Success: true",
+        "details": {
+          "response": {
+            "success": true,
+            "analysisResult": {
+              "success": true,
+              "documentType": "income_statement",
+              "extractedData": {
+                "companyName": null,
+                "period": 2024,
+                "totalRevenue": 12350000,
+                "netIncome": -305000,
+                "grossProfit": 4150000,
+                "operatingExpenses": 4350000,
+                "operatingIncome": -200000,
+                "interestExpense": -180000,
+                "taxExpense": 0,
+                "costOfGoodsSold": 8200000
+              },
+              "validation": {
+                "isValid": false,
+                "missingFields": [
+                  "companyName"
+                ],
+                "invalidFields": [],
+                "warnings": [],
+                "completeness": 66.66666666666666
+              },
+              "mathValidation": {
+                "isValid": true,
+                "missingFields": [],
+                "invalidFields": [],
+                "warnings": [],
+                "completeness": 100
+              },
+              "errorDetection": {
+                "isValid": false,
+                "missingFields": [],
+                "invalidFields": [
+                  "The 'companyName' field is null, which is critical information missing from the income statement.",
+                  "The 'interestExpense' in the Extracted Data is shown as -180000, which is correct as an expense, but the Original Text shows it as -180000, which is consistent. However, the 'interestIncome' and 'otherIncome' are not included in the Extracted Data, leading to a mismatch in 'Total Other Income (Expense)'.",
+                  "The 'operatingIncome' in the Extracted Data is -200000, which matches the Original Text, but the calculation should be verified: Gross Profit (4150000) - Operating Expenses (4350000) = -200000, which is correct.",
+                  "The 'netIncome' in the Extracted Data is -305000, which matches the Original Text, but the calculation should be verified: Operating Income (-200000) + Total Other Income (Expense) (-105000) = -305000, which is correct."
+                ],
+                "warnings": [
+                  "The 'period' is listed as 2024, which is a future date and should be verified for accuracy.",
+                  "The 'taxExpense' is 0, which might be unusual depending on the jurisdiction and tax regulations applicable to the company.",
+                  "The 'interestIncome' and 'otherIncome' are not included in the Extracted Data, which could lead to incomplete financial analysis."
+                ],
+                "completeness": 100
+              },
+              "confidence": 90,
+              "recommendations": [
+                "Missing required fields: companyName",
+                "The 'period' is listed as 2024, which is a future date and should be verified for accuracy.",
+                "The 'taxExpense' is 0, which might be unusual depending on the jurisdiction and tax regulations applicable to the company.",
+                "The 'interestIncome' and 'otherIncome' are not included in the Extracted Data, which could lead to incomplete financial analysis."
+              ]
+            },
+            "documentId": "cmhzqfzrs0009sfh5xp7tqine",
+            "saved": true
+          }
+        },
+        "timestamp": "2025-11-15T03:36:51.048Z"
+      },
+      {
+        "name": "Upload Cash Flow",
+        "passed": true,
+        "message": "Status: 200, Success: true",
+        "details": {
+          "response": {
+            "success": true,
+            "analysisResult": {
+              "success": true,
+              "documentType": "cash_flow",
+              "extractedData": {
+                "companyName": "Kerbe Tech",
+                "period": 2024,
+                "operatingCashFlow": -155000,
+                "investingCashFlow": -1000000,
+                "financingCashFlow": 1300000,
+                "netCashFlow": 145000
+              },
+              "validation": {
+                "isValid": true,
+                "missingFields": [],
+                "invalidFields": [],
+                "warnings": [],
+                "completeness": 100
+              },
+              "mathValidation": {
+                "isValid": true,
+                "missingFields": [],
+                "invalidFields": [],
+                "warnings": [],
+                "completeness": 100
+              },
+              "errorDetection": {
+                "isValid": false,
+                "missingFields": [],
+                "invalidFields": [
+                  "The net cash flow calculation is incorrect. The sum of operating, investing, and financing cash flows (-155000 + -1000000 + 1300000) should equal the net cash flow, which is 145000. The correct net cash flow should be 145000, which matches the provided net cash flow, but the calculation should be verified.",
+                  "The net increase in cash (145000) does not match the difference between cash at the beginning of the period (2355000) and cash at the end of the period (2500000). The difference should be 145000, which matches the net increase, but the calculation should be verified."
+                ],
+                "warnings": [
+                  "The operating cash flow is negative, which might indicate operational issues or a temporary situation that should be investigated further.",
+                  "The investing cash flow is significantly negative, suggesting high capital expenditures, which could be a strategic investment or a potential cash drain.",
+                  "The financing cash flow is positive and large, indicating heavy reliance on external financing, which could be a risk if not managed properly."
+                ],
+                "completeness": 100
+              },
+              "confidence": 100,
+              "recommendations": [
+                "The operating cash flow is negative, which might indicate operational issues or a temporary situation that should be investigated further.",
+                "The investing cash flow is significantly negative, suggesting high capital expenditures, which could be a strategic investment or a potential cash drain.",
+                "The financing cash flow is positive and large, indicating heavy reliance on external financing, which could be a risk if not managed properly."
+              ]
+            },
+            "documentId": "cmhzqg8r3000hsfh5mh3l6kyq",
+            "saved": true
+          }
+        },
+        "timestamp": "2025-11-15T03:36:59.243Z"
+      },
+      {
+        "name": "Documents Retrieved",
+        "passed": true,
+        "message": "Found 4 documents",
+        "details": {
+          "success": true,
+          "total": 4,
+          "documents": [
+            {
+              "id": "cmhzqgkzk000psfh580jl8hg4",
+              "type": "balance_sheet",
+              "status": "completed",
+              "hasAnalysis": true
+            },
+            {
+              "id": "cmhzqg8r3000hsfh5mh3l6kyq",
+              "type": "cash_flow",
+              "status": "completed",
+              "hasAnalysis": true
+            },
+            {
+              "id": "cmhzqfzrs0009sfh5xp7tqine",
+              "type": "income_statement",
+              "status": "completed",
+              "hasAnalysis": true
+            },
+            {
+              "id": "cmhzqfr4c0001sfh50hpqjhmk",
+              "type": "balance_sheet",
+              "status": "completed",
+              "hasAnalysis": true
+            }
+          ]
+        },
+        "timestamp": "2025-11-15T03:37:09.254Z"
+      },
+      {
+        "name": "All Document Types Present",
+        "passed": true,
+        "message": "BS: true, IS: true, CF: true",
+        "details": {
+          "hasBalanceSheet": true,
+          "hasIncomeStatement": true,
+          "hasCashFlow": true
+        },
+        "timestamp": "2025-11-15T03:37:09.254Z"
+      },
+      {
+        "name": "Documents Completed",
+        "passed": true,
+        "message": "4 documents completed",
+        "details": {
+          "completed": 4,
+          "total": 4
+        },
+        "timestamp": "2025-11-15T03:37:09.254Z"
+      },
+      {
+        "name": "Documents Have Analysis Results",
+        "passed": true,
+        "message": "4 documents have analysis results",
+        "details": {
+          "withAnalysis": 4
+        },
+        "timestamp": "2025-11-15T03:37:09.254Z"
+      },
+      {
+        "name": "Financial Data Retrieved",
+        "passed": {
+          "financialData": [
+            {
+              "companyName": "Unknown Company",
+              "period": 2024,
+              "balanceSheet": {
+                "totalAssets": 19450000,
+                "currentAssets": 5650000,
+                "nonCurrentAssets": 13800000,
+                "totalLiabilities": 8750000,
+                "currentLiabilities": 2450000,
+                "nonCurrentLiabilities": 6300000,
+                "totalEquity": 10700000,
+                "cash": 2500000,
+                "accountsReceivable": 1800000,
+                "inventory": 1200000,
+                "accountsPayable": 950000,
+                "shortTermDebt": 1200000,
+                "longTermDebt": 5500000,
+                "retainedEarnings": 5200000
+              },
+              "incomeStatement": {
+                "totalRevenue": 12350000,
+                "costOfGoodsSold": 8200000,
+                "grossProfit": 4150000,
+                "operatingExpenses": 4350000,
+                "operatingIncome": -200000,
+                "interestExpense": -180000,
+                "taxExpense": 0,
+                "netIncome": -305000
+              },
+              "cashFlow": {
+                "operatingCashFlow": -155000,
+                "investingCashFlow": -1000000,
+                "financingCashFlow": 1300000,
+                "netCashFlow": 145000
+              }
+            },
+            {
+              "companyName": "Unknown Company",
+              "period": "2025-11-15",
+              "balanceSheet": {
+                "totalAssets": 0,
+                "currentAssets": 0,
+                "nonCurrentAssets": 0,
+                "totalLiabilities": 0,
+                "currentLiabilities": 0,
+                "nonCurrentLiabilities": 0,
+                "totalEquity": 0,
+                "cash": 0,
+                "accountsReceivable": 0,
+                "inventory": 0,
+                "accountsPayable": 0,
+                "shortTermDebt": 0,
+                "longTermDebt": 0,
+                "retainedEarnings": 0
+              },
+              "incomeStatement": {
+                "totalRevenue": 0,
+                "costOfGoodsSold": 0,
+                "grossProfit": 0,
+                "operatingExpenses": 0,
+                "operatingIncome": 0,
+                "interestExpense": 0,
+                "taxExpense": 0,
+                "netIncome": 0
+              },
+              "cashFlow": {
+                "operatingCashFlow": 0,
+                "investingCashFlow": 0,
+                "financingCashFlow": 0,
+                "netCashFlow": 0
+              }
+            }
+          ],
+          "dataCompleteness": {
+            "score": 100,
+            "requiredDocs": 3,
+            "totalRequiredDocs": 3,
+            "recommendedDocs": 4,
+            "totalRecommendedDocs": 36,
+            "monthsOfData": 2,
+            "hasBalanceSheet": true,
+            "hasIncomeStatement": true,
+            "hasCashFlow": true
+          },
+          "documentCount": 4
+        },
+        "message": "Success: true, Has Data: true",
+        "details": {
+          "response": {
+            "success": true,
+            "data": {
+              "financialData": [
+                {
+                  "companyName": "Unknown Company",
+                  "period": 2024,
+                  "balanceSheet": {
+                    "totalAssets": 19450000,
+                    "currentAssets": 5650000,
+                    "nonCurrentAssets": 13800000,
+                    "totalLiabilities": 8750000,
+                    "currentLiabilities": 2450000,
+                    "nonCurrentLiabilities": 6300000,
+                    "totalEquity": 10700000,
+                    "cash": 2500000,
+                    "accountsReceivable": 1800000,
+                    "inventory": 1200000,
+                    "accountsPayable": 950000,
+                    "shortTermDebt": 1200000,
+                    "longTermDebt": 5500000,
+                    "retainedEarnings": 5200000
+                  },
+                  "incomeStatement": {
+                    "totalRevenue": 12350000,
+                    "costOfGoodsSold": 8200000,
+                    "grossProfit": 4150000,
+                    "operatingExpenses": 4350000,
+                    "operatingIncome": -200000,
+                    "interestExpense": -180000,
+                    "taxExpense": 0,
+                    "netIncome": -305000
+                  },
+                  "cashFlow": {
+                    "operatingCashFlow": -155000,
+                    "investingCashFlow": -1000000,
+                    "financingCashFlow": 1300000,
+                    "netCashFlow": 145000
+                  }
+                },
+                {
+                  "companyName": "Unknown Company",
+                  "period": "2025-11-15",
+                  "balanceSheet": {
+                    "totalAssets": 0,
+                    "currentAssets": 0,
+                    "nonCurrentAssets": 0,
+                    "totalLiabilities": 0,
+                    "currentLiabilities": 0,
+                    "nonCurrentLiabilities": 0,
+                    "totalEquity": 0,
+                    "cash": 0,
+                    "accountsReceivable": 0,
+                    "inventory": 0,
+                    "accountsPayable": 0,
+                    "shortTermDebt": 0,
+                    "longTermDebt": 0,
+                    "retainedEarnings": 0
+                  },
+                  "incomeStatement": {
+                    "totalRevenue": 0,
+                    "costOfGoodsSold": 0,
+                    "grossProfit": 0,
+                    "operatingExpenses": 0,
+                    "operatingIncome": 0,
+                    "interestExpense": 0,
+                    "taxExpense": 0,
+                    "netIncome": 0
+                  },
+                  "cashFlow": {
+                    "operatingCashFlow": 0,
+                    "investingCashFlow": 0,
+                    "financingCashFlow": 0,
+                    "netCashFlow": 0
+                  }
+                }
+              ],
+              "dataCompleteness": {
+                "score": 100,
+                "requiredDocs": 3,
+                "totalRequiredDocs": 3,
+                "recommendedDocs": 4,
+                "totalRecommendedDocs": 36,
+                "monthsOfData": 2,
+                "hasBalanceSheet": true,
+                "hasIncomeStatement": true,
+                "hasCashFlow": true
+              },
+              "documentCount": 4
+            }
+          }
+        },
+        "timestamp": "2025-11-15T03:37:09.258Z"
+      },
+      {
+        "name": "Financial Data Array Not Empty",
+        "passed": true,
+        "message": "Found 2 periods",
+        "details": {
+          "periods": 2
+        },
+        "timestamp": "2025-11-15T03:37:09.258Z"
+      },
+      {
+        "name": "Data Completeness",
+        "passed": true,
+        "message": "BS: true, IS: true, CF: true",
+        "details": {
+          "completeness": {
+            "score": 100,
+            "requiredDocs": 3,
+            "totalRequiredDocs": 3,
+            "recommendedDocs": 4,
+            "totalRecommendedDocs": 36,
+            "monthsOfData": 2,
+            "hasBalanceSheet": true,
+            "hasIncomeStatement": true,
+            "hasCashFlow": true
+          }
+        },
+        "timestamp": "2025-11-15T03:37:09.258Z"
+      },
+      {
+        "name": "Financial Data Structure Valid",
+        "passed": true,
+        "message": "BS: true, IS: true, CF: true",
+        "details": {
+          "firstPeriod": {
+            "companyName": "Unknown Company",
+            "period": 2024,
+            "balanceSheet": {
+              "totalAssets": 19450000,
+              "currentAssets": 5650000,
+              "nonCurrentAssets": 13800000,
+              "totalLiabilities": 8750000,
+              "currentLiabilities": 2450000,
+              "nonCurrentLiabilities": 6300000,
+              "totalEquity": 10700000,
+              "cash": 2500000,
+              "accountsReceivable": 1800000,
+              "inventory": 1200000,
+              "accountsPayable": 950000,
+              "shortTermDebt": 1200000,
+              "longTermDebt": 5500000,
+              "retainedEarnings": 5200000
+            },
+            "incomeStatement": {
+              "totalRevenue": 12350000,
+              "costOfGoodsSold": 8200000,
+              "grossProfit": 4150000,
+              "operatingExpenses": 4350000,
+              "operatingIncome": -200000,
+              "interestExpense": -180000,
+              "taxExpense": 0,
+              "netIncome": -305000
+            },
+            "cashFlow": {
+              "operatingCashFlow": -155000,
+              "investingCashFlow": -1000000,
+              "financingCashFlow": 1300000,
+              "netCashFlow": 145000
+            }
+          }
+        },
+        "timestamp": "2025-11-15T03:37:09.258Z"
+      },
+      {
+        "name": "KPIs Retrieved",
+        "passed": false,
+        "message": "Status: 404",
+        "details": {
+          "kpis": {
+            "message": "Route GET:/dashboard/kpis not found",
+            "error": "Not Found",
+            "statusCode": 404
+          }
+        },
+        "timestamp": "2025-11-15T03:37:09.260Z"
+      },
+      {
+        "name": "Cash KPI",
+        "passed": true,
+        "message": "Cash: $2,500,000",
+        "details": {
+          "cash": 2500000
+        },
+        "timestamp": "2025-11-15T03:37:09.273Z"
+      },
+      {
+        "name": "Gross Margin KPI",
+        "passed": true,
+        "message": "Gross Margin: 33.60%",
+        "details": {
+          "grossMargin": 33.603238866396765,
+          "revenue": 12350000,
+          "cogs": 8200000
+        },
+        "timestamp": "2025-11-15T03:37:09.273Z"
+      },
+      {
+        "name": "Current Ratio KPI",
+        "passed": true,
+        "message": "Current Ratio: 2.31",
+        "details": {
+          "currentRatio": 2.306122448979592,
+          "currentAssets": 5650000,
+          "currentLiabilities": 2450000
+        },
+        "timestamp": "2025-11-15T03:37:09.273Z"
+      },
+      {
+        "name": "Empty File Handling",
+        "passed": true,
+        "message": "Status: 400 (should reject empty file)",
+        "details": {
+          "response": {
+            "success": false,
+            "error": "File is empty. Please upload a file with content."
+          }
+        },
+        "timestamp": "2025-11-15T03:37:09.276Z"
+      },
+      {
+        "name": "Invalid Document Type Handling",
+        "passed": true,
+        "message": "Status: 400 (should reject invalid type)",
+        "details": {
+          "response": {
+            "success": false,
+            "error": "Invalid document type: 'invalid_type'. Supported types: balance_sheet, income_statement, cash_flow, order_sheets, inventory_reports, customer_reports, supplier_reports, financial_reports"
+          }
+        },
+        "timestamp": "2025-11-15T03:37:09.278Z"
+      },
+      {
+        "name": "Duplicate Upload Handling",
+        "passed": true,
+        "message": "Status: 200 (should handle duplicates gracefully)",
+        "details": {
+          "response": {
+            "success": true,
+            "analysisResult": {
+              "success": true,
+              "documentType": "balance_sheet",
+              "extractedData": {
+                "companyName": "Kerbe Tech",
+                "period": 2024,
+                "totalAssets": 19450000,
+                "currentAssets": 5650000,
+                "nonCurrentAssets": 13800000,
+                "totalLiabilities": 8750000,
+                "currentLiabilities": 2450000,
+                "nonCurrentLiabilities": 6300000,
+                "totalEquity": 10700000,
+                "retainedEarnings": 5200000,
+                "cash": 2500000,
+                "accountsReceivable": 1800000,
+                "inventory": 1200000,
+                "propertyPlantEquipment": 8500000,
+                "accountsPayable": 950000,
+                "shortTermDebt": 1200000,
+                "longTermDebt": 5500000,
+                "commonStock": null
+              },
+              "validation": {
+                "isValid": true,
+                "missingFields": [],
+                "invalidFields": [],
+                "warnings": [],
+                "completeness": 100
+              },
+              "mathValidation": {
+                "isValid": true,
+                "missingFields": [],
+                "invalidFields": [],
+                "warnings": [],
+                "completeness": 100
+              },
+              "errorDetection": {
+                "isValid": false,
+                "missingFields": [],
+                "invalidFields": [
+                  "The 'commonStock' field in the extracted data is null, but the original text lists 'Share Capital' as 5000000. This inconsistency needs to be resolved.",
+                  "The sum of 'currentLiabilities' (2450000) and 'nonCurrentLiabilities' (6300000) should equal 'totalLiabilities' (8750000), which it does. However, the breakdown of 'currentLiabilities' in the original text (Accounts Payable: 950000, Short-term Debt: 1200000, Accrued Expenses: 300000) sums to 2450000, which is correct, but the breakdown of 'nonCurrentLiabilities' (Long-term Debt: 5500000, Deferred Tax Liabilities: 800000) sums to 6300000, which is also correct. No error here, but ensure these values are accurate."
+                ],
+                "warnings": [
+                  "The 'retainedEarnings' value in the extracted data (5200000) matches the original text, but ensure this value is accurate as it significantly impacts 'totalEquity'.",
+                  "The 'Other Comprehensive Income' is listed as 500000 in the original text but is not included in the extracted data. Ensure this is intentional."
+                ],
+                "completeness": 100
+              },
+              "confidence": 100,
+              "recommendations": [
+                "The 'retainedEarnings' value in the extracted data (5200000) matches the original text, but ensure this value is accurate as it significantly impacts 'totalEquity'.",
+                "The 'Other Comprehensive Income' is listed as 500000 in the original text but is not included in the extracted data. Ensure this is intentional."
+              ]
+            },
+            "documentId": "cmhzqfr4c0001sfh50hpqjhmk",
+            "saved": true
+          }
+        },
+        "timestamp": "2025-11-15T03:37:17.009Z"
+      }
+    ],
+    "errors": []
+  }
+}

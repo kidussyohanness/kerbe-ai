@@ -1,0 +1,25 @@
+Company,Acme Tech Solutions Inc.
+Period,Q1 2024
+Date,2024-03-31
+Note,This balance sheet has conflicting totals - INTENTIONAL FOR TESTING
+
+Account,Amount
+Cash and Cash Equivalents,2800000
+Accounts Receivable,1650000
+Inventory,980000
+Total Current Assets,5550000
+Property Plant and Equipment,7200000
+TOTAL ASSETS,17150000
+Accounts Payable,850000
+Short-term Debt,1100000
+Total Current Liabilities,2230000
+Long-term Debt,4800000
+TOTAL LIABILITIES,7680000
+Share Capital,4500000
+Retained Earnings,4700000
+TOTAL EQUITY,9470000
+
+CONFLICT: Assets (17,150,000) != Liabilities (7,680,000) + Equity (9,470,000)
+The equation should balance but we have: 17,150,000 vs 17,150,000 - ACTUALLY BALANCED
+But let's create a real conflict...
+

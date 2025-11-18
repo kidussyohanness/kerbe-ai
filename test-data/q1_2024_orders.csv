@@ -1,0 +1,12 @@
+Order ID,Customer,Product,Quantity,Unit Price,Total,Order Date,Status
+ORD001,TechCorp Industries,Enterprise License,5,25000,125000,2024-01-15,Delivered
+ORD002,Global Solutions Ltd,Premium Support,1,15000,15000,2024-01-18,Delivered
+ORD003,Innovation Labs,Cloud Services,10,8000,80000,2024-01-22,Delivered
+ORD004,Digital Dynamics,API Access,20,3000,60000,2024-02-05,Delivered
+ORD005,Smart Systems Inc,Consulting Hours,40,2500,100000,2024-02-12,Delivered
+ORD006,Future Tech Co,Training Package,3,12000,36000,2024-02-28,Delivered
+ORD007,NextGen Partners,Integration Services,1,45000,45000,2024-03-08,Delivered
+ORD008,Quantum Innovations,Custom Development,1,85000,85000,2024-03-15,Delivered
+ORD009,Apex Solutions,Maintenance Contract,2,18000,36000,2024-03-22,Delivered
+ORD010,Vertex Technologies,Data Migration,1,28000,28000,2024-03-29,Delivered
+

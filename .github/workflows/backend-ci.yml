@@ -1,0 +1,36 @@
+name: Backend CI & Migrate
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  migrate_and_build:
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: ${{ secrets.BACKEND_DATABASE_URL }}
+      DIRECT_URL: ${{ secrets.BACKEND_DIRECT_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install deps
+        run: npm ci
+        working-directory: analytics-platform-backend
+      - name: Generate Prisma Client
+        run: npx prisma generate
+        working-directory: analytics-platform-backend
+      - name: Run Prisma Migrate (direct URL)
+        env:
+          PRISMA_MIGRATE_MAX_ADVISORY_LOCK_TIMEOUT: 60000
+        run: npx prisma migrate deploy --schema prisma/schema.prisma
+        working-directory: analytics-platform-backend
+      - name: Build
+        run: npm run build
+        working-directory: analytics-platform-backend
+

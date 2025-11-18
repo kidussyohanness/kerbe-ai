@@ -1,0 +1,10 @@
+Supplier ID,Supplier Name,Category,Total Orders,Total Purchases,Avg Order,Payment Terms,Reliability Score,Last Order
+SUP001,DataCenter Solutions,Infrastructure,24,850000,35417,Net 30,9.5,2024-06-25
+SUP002,Cloud Providers Inc,Cloud Services,36,1250000,34722,Net 60,9.2,2024-06-28
+SUP003,Software Licensing Co,Software,18,620000,34444,Net 45,8.8,2024-06-20
+SUP004,Hardware Supplies Ltd,Equipment,12,385000,32083,Net 30,9.0,2024-06-15
+SUP005,Office Solutions,Office Supplies,42,125000,2976,Net 30,9.3,2024-06-27
+SUP006,Tech Support Services,Support,28,445000,15893,Net 60,8.5,2024-06-22
+SUP007,Security Systems Co,Security,8,295000,36875,Net 45,9.1,2024-06-18
+SUP008,Training Academy,Education,14,180000,12857,Net 30,8.9,2024-06-12
+

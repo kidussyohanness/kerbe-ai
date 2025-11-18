@@ -1,0 +1,26 @@
+Account,Amount (USD)
+REVENUE
+Gross Revenue,12500000
+Less: Sales Returns and Allowances,150000
+Net Revenue,12350000
+COST OF GOODS SOLD
+Direct Materials,4200000
+Direct Labor,2800000
+Manufacturing Overhead,1200000
+Total Cost of Goods Sold,8200000
+GROSS PROFIT,4150000
+OPERATING EXPENSES
+Sales and Marketing,1800000
+General and Administrative,950000
+Research and Development,1200000
+Depreciation and Amortization,400000
+Total Operating Expenses,4350000
+OPERATING INCOME (LOSS),-200000
+OTHER INCOME (EXPENSE)
+Interest Income,50000
+Interest Expense,-180000
+Other Income,25000
+Total Other Income (Expense),-105000
+INCOME BEFORE TAXES,-305000
+Income Tax Expense,0
+NET INCOME,-305000

@@ -1,0 +1,11 @@
+Product ID,Product Name,Category,Unit Price,Cost,Units Sold,Revenue
+PROD-001,AI Analytics Platform,Software,50000,15000,45,2250000
+PROD-002,Data Visualization Tool,Software,25000,8000,60,1500000
+PROD-003,Cloud Storage Solution,Infrastructure,15000,5000,80,1200000
+PROD-004,Machine Learning API,Software,10000,3000,120,1200000
+PROD-005,Database Management System,Software,35000,12000,35,1225000
+PROD-006,Cybersecurity Suite,Security,40000,15000,25,1000000
+PROD-007,API Gateway,Infrastructure,20000,7000,50,1000000
+PROD-008,Real-time Analytics,Software,30000,10000,40,1200000
+PROD-009,Data Pipeline Tool,Infrastructure,18000,6000,55,990000
+PROD-010,Monitoring Dashboard,Software,12000,4000,70,840000

@@ -1,0 +1,14 @@
+Customer ID,Customer Name,Industry,Total Orders,Total Spent,Avg Order Value,First Order,Last Order,Lifetime Value,Status
+CUST001,TechCorp Industries,Technology,15,1850000,123333,2023-06-15,2024-06-10,2100000,Premium
+CUST002,Global Solutions Ltd,Consulting,12,980000,81667,2023-08-22,2024-05-24,1200000,Active
+CUST003,Innovation Labs,Research,18,1450000,80556,2023-05-10,2024-04-18,1650000,Premium
+CUST004,Digital Dynamics,Marketing,22,890000,40455,2023-09-01,2024-04-25,1050000,Active
+CUST005,Smart Systems Inc,Manufacturing,10,1200000,120000,2023-11-15,2024-05-10,1400000,Premium
+CUST006,Future Tech Co,Technology,8,620000,77500,2024-01-10,2024-03-15,750000,Active
+CUST007,NextGen Partners,Finance,14,1180000,84286,2023-07-20,2024-05-17,1350000,Premium
+CUST008,Quantum Innovations,Technology,9,1560000,173333,2023-10-05,2024-06-07,1850000,Premium
+CUST009,Apex Solutions,Healthcare,11,745000,67727,2023-12-01,2024-06-14,880000,Active
+CUST010,Vertex Technologies,Logistics,7,495000,70714,2024-02-12,2024-06-28,600000,Active
+CUST011,MegaCorp Systems,Enterprise,6,580000,96667,2024-03-05,2024-05-03,680000,Active
+CUST012,CloudFirst Inc,Cloud,4,385000,96250,2024-04-01,2024-06-21,450000,New
+

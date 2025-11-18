@@ -1,0 +1,2402 @@
+{
+  "timestamp": "2025-11-18T18:11:33.761Z",
+  "summary": {
+    "total": 40,
+    "passed": 34,
+    "failed": 6,
+    "warnings": 0,
+    "successRate": 85
+  },
+  "byCategory": {
+    "Health": {
+      "passed": 2,
+      "failed": 0,
+      "warnings": 0
+    },
+    "Auth": {
+      "passed": 4,
+      "failed": 0,
+      "warnings": 0
+    },
+    "Documents": {
+      "passed": 4,
+      "failed": 1,
+      "warnings": 0
+    },
+    "KPIs": {
+      "passed": 3,
+      "failed": 0,
+      "warnings": 0
+    },
+    "Chat": {
+      "passed": 5,
+      "failed": 0,
+      "warnings": 0
+    },
+    "Search": {
+      "passed": 4,
+      "failed": 0,
+      "warnings": 0
+    },
+    "API": {
+      "passed": 4,
+      "failed": 5,
+      "warnings": 0
+    },
+    "Errors": {
+      "passed": 4,
+      "failed": 0,
+      "warnings": 0
+    },
+    "Data": {
+      "passed": 2,
+      "failed": 0,
+      "warnings": 0
+    },
+    "Performance": {
+      "passed": 2,
+      "failed": 0,
+      "warnings": 0
+    }
+  },
+  "tests": [
+    {
+      "category": "Health",
+      "name": "Backend Health Check",
+      "passed": true,
+      "message": "Status: 200",
+      "details": {
+        "response": {
+          "status": "ok",
+          "service": "kerbe-ai-backend"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:27.803Z",
+      "warning": false
+    },
+    {
+      "category": "Health",
+      "name": "Document Service Health",
+      "passed": true,
+      "message": "Status: 200",
+      "details": {
+        "response": {
+          "success": true,
+          "status": "healthy",
+          "services": {
+            "ai": "connected",
+            "documentAnalysis": "ready"
+          }
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.213Z",
+      "warning": false
+    },
+    {
+      "category": "Auth",
+      "name": "Valid User ID",
+      "passed": true,
+      "message": "Status: 200",
+      "details": {
+        "response": {
+          "success": true,
+          "documents": [
+            {
+              "id": "cmhzqgkzk000psfh580jl8hg4",
+              "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+              "filename": "test-empty.csv",
+              "originalName": "test-empty.csv",
+              "mimeType": "text/csv",
+              "fileSize": 0,
+              "documentType": "balance_sheet",
+              "filePath": "cmgtv2kjt0000sfzqb6d91ez0/1763177669695_test-empty.csv",
+              "fileHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "storageProvider": "local",
+              "storageKey": null,
+              "folderId": null,
+              "tags": null,
+              "description": null,
+              "status": "completed",
+              "processingError": null,
+              "processingProgress": 0,
+              "analysisResults": {
+                "success": true,
+                "documentType": "balance_sheet",
+                "extractedData": {
+                  "companyName": null,
+                  "period": null,
+                  "totalAssets": null,
+                  "currentAssets": null,
+                  "nonCurrentAssets": null,
+                  "totalLiabilities": null,
+                  "currentLiabilities": null,
+                  "nonCurrentLiabilities": null,
+                  "totalEquity": null,
+                  "retainedEarnings": null,
+                  "cash": null,
+                  "accountsReceivable": null,
+                  "inventory": null,
+                  "propertyPlantEquipment": null,
+                  "accountsPayable": null,
+                  "shortTermDebt": null,
+                  "longTermDebt": null,
+                  "commonStock": null
+                },
+                "validation": {
+                  "isValid": false,
+                  "missingFields": [
+                    "companyName",
+                    "totalAssets",
+                    "totalLiabilities",
+                    "totalEquity"
+                  ],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 0
+                },
+                "mathValidation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "errorDetection": {
+                  "isValid": false,
+                  "missingFields": [],
+                  "invalidFields": [
+                    "All fields are null, indicating missing or incomplete data extraction.",
+                    "Missing company name and period, which are essential for identifying the balance sheet."
+                  ],
+                  "warnings": [
+                    "The absence of values for totalAssets, totalLiabilities, and totalEquity makes it impossible to verify the balance sheet equation (Assets = Liabilities + Equity).",
+                    "Missing values for key components like cash, accounts receivable, and inventory, which are critical for assessing liquidity."
+                  ],
+                  "completeness": 100
+                },
+                "confidence": 60,
+                "recommendations": [
+                  "Missing required fields: companyName, totalAssets, totalLiabilities, totalEquity",
+                  "The absence of values for totalAssets, totalLiabilities, and totalEquity makes it impossible to verify the balance sheet equation (Assets = Liabilities + Equity).",
+                  "Missing values for key components like cash, accounts receivable, and inventory, which are critical for assessing liquidity."
+                ]
+              },
+              "isPublic": false,
+              "accessLevel": "private",
+              "sharedWith": null,
+              "version": 1,
+              "parentDocumentId": null,
+              "thumbnailPath": null,
+              "previewPath": null,
+              "createdAt": "2025-11-15T03:34:29.696Z",
+              "updatedAt": "2025-11-15T03:35:45.722Z",
+              "analyses": [
+                {
+                  "id": "cmhzqi7nf0009sfx0zv0y2lg0",
+                  "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                  "documentId": "cmhzqgkzk000psfh580jl8hg4",
+                  "analysisType": "full_analysis",
+                  "documentType": "balance_sheet",
+                  "businessContext": null,
+                  "questions": [],
+                  "answers": [],
+                  "confidence": 60,
+                  "companyName": null,
+                  "period": "2025-11-15T03:35:45.723Z",
+                  "analysisTimestamp": "2025-11-15T03:35:45.723Z",
+                  "createdAt": "2025-11-15T03:35:45.723Z",
+                  "updatedAt": "2025-11-15T03:35:45.723Z"
+                }
+              ]
+            },
+            {
+              "id": "cmhzqg8r3000hsfh5mh3l6kyq",
+              "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+              "filename": "kerbe_tech_cash_flow_2024.csv",
+              "originalName": "kerbe_tech_cash_flow_2024.csv",
+              "mimeType": "text/csv",
+              "fileSize": 779,
+              "documentType": "cash_flow",
+              "filePath": "cmgtv2kjt0000sfzqb6d91ez0/1763177653837_kerbe_tech_cash_flow_2024.csv",
+              "fileHash": "04c07f730044d68e5e1c83dd99cdfef1231667465d4c74b2a8364276e725f8bb",
+              "storageProvider": "local",
+              "storageKey": null,
+              "folderId": null,
+              "tags": null,
+              "description": null,
+              "status": "completed",
+              "processingError": null,
+              "processingProgress": 0,
+              "analysisResults": {
+                "success": true,
+                "documentType": "cash_flow",
+                "extractedData": {
+                  "companyName": "Kerbe Tech",
+                  "period": 2024,
+                  "operatingCashFlow": -155000,
+                  "investingCashFlow": -1000000,
+                  "financingCashFlow": 1300000,
+                  "netCashFlow": 145000
+                },
+                "validation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "mathValidation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "errorDetection": {
+                  "isValid": false,
+                  "missingFields": [],
+                  "invalidFields": [
+                    "The net cash flow calculation is incorrect. The sum of operating, investing, and financing cash flows (-155000 + -1000000 + 1300000) should equal the net cash flow, which is 145000. The correct net cash flow should be 145000, which matches the provided net cash flow, but the calculation should be verified.",
+                    "The net increase in cash (145000) does not match the difference between cash at the beginning of the period (2355000) and cash at the end of the period (2500000). The difference should be 145000, which matches the net increase, but the calculation should be verified."
+                  ],
+                  "warnings": [
+                    "The operating cash flow is negative, which might indicate operational issues or a temporary situation that should be investigated further.",
+                    "The investing cash flow is significantly negative, suggesting high capital expenditures, which could be a strategic investment or a potential cash drain.",
+                    "The financing cash flow is positive and large, indicating heavy reliance on external financing, which could be a risk if not managed properly."
+                  ],
+                  "completeness": 100
+                },
+                "confidence": 100,
+                "recommendations": [
+                  "The operating cash flow is negative, which might indicate operational issues or a temporary situation that should be investigated further.",
+                  "The investing cash flow is significantly negative, suggesting high capital expenditures, which could be a strategic investment or a potential cash drain.",
+                  "The financing cash flow is positive and large, indicating heavy reliance on external financing, which could be a risk if not managed properly."
+                ]
+              },
+              "isPublic": false,
+              "accessLevel": "private",
+              "sharedWith": null,
+              "version": 1,
+              "parentDocumentId": null,
+              "thumbnailPath": null,
+              "previewPath": null,
+              "createdAt": "2025-11-15T03:34:13.839Z",
+              "updatedAt": "2025-11-15T03:36:59.236Z",
+              "analyses": [
+                {
+                  "id": "cmhzqjsdj0005sf4inczgnyjy",
+                  "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                  "documentId": "cmhzqg8r3000hsfh5mh3l6kyq",
+                  "analysisType": "full_analysis",
+                  "documentType": "cash_flow",
+                  "businessContext": null,
+                  "questions": [],
+                  "answers": [],
+                  "confidence": 100,
+                  "companyName": "Kerbe Tech",
+                  "period": "2024",
+                  "analysisTimestamp": "2025-11-15T03:36:59.239Z",
+                  "createdAt": "2025-11-15T03:36:59.239Z",
+                  "updatedAt": "2025-11-15T03:36:59.239Z"
+                }
+              ]
+            },
+            {
+              "id": "cmhzqfzrs0009sfh5xp7tqine",
+              "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+              "filename": "kerbe_tech_income_statement_2024.csv",
+              "originalName": "kerbe_tech_income_statement_2024.csv",
+              "mimeType": "text/csv",
+              "fileSize": 675,
+              "documentType": "income_statement",
+              "filePath": "cmgtv2kjt0000sfzqb6d91ez0/1763177642198_kerbe_tech_income_statement_2024.csv",
+              "fileHash": "76eba362d621714083031f6e1ee0cd4e8b9c0b8b8b962c72e1b7334fa415f117",
+              "storageProvider": "local",
+              "storageKey": null,
+              "folderId": null,
+              "tags": null,
+              "description": null,
+              "status": "completed",
+              "processingError": null,
+              "processingProgress": 0,
+              "analysisResults": {
+                "success": true,
+                "documentType": "income_statement",
+                "extractedData": {
+                  "companyName": null,
+                  "period": 2024,
+                  "totalRevenue": 12350000,
+                  "netIncome": -305000,
+                  "grossProfit": 4150000,
+                  "operatingExpenses": 4350000,
+                  "operatingIncome": -200000,
+                  "interestExpense": -180000,
+                  "taxExpense": 0,
+                  "costOfGoodsSold": 8200000
+                },
+                "validation": {
+                  "isValid": false,
+                  "missingFields": [
+                    "companyName"
+                  ],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 66.66666666666666
+                },
+                "mathValidation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "errorDetection": {
+                  "isValid": false,
+                  "missingFields": [],
+                  "invalidFields": [
+                    "The 'companyName' field is null, which is critical information missing from the income statement.",
+                    "The 'interestExpense' in the Extracted Data is shown as -180000, which is correct as an expense, but the Original Text shows it as -180000, which is consistent. However, the 'interestIncome' and 'otherIncome' are not included in the Extracted Data, leading to a mismatch in 'Total Other Income (Expense)'.",
+                    "The 'operatingIncome' in the Extracted Data is -200000, which matches the Original Text, but the calculation should be verified: Gross Profit (4150000) - Operating Expenses (4350000) = -200000, which is correct.",
+                    "The 'netIncome' in the Extracted Data is -305000, which matches the Original Text, but the calculation should be verified: Operating Income (-200000) + Total Other Income (Expense) (-105000) = -305000, which is correct."
+                  ],
+                  "warnings": [
+                    "The 'period' is listed as 2024, which is a future date and should be verified for accuracy.",
+                    "The 'taxExpense' is 0, which might be unusual depending on the jurisdiction and tax regulations applicable to the company.",
+                    "The 'interestIncome' and 'otherIncome' are not included in the Extracted Data, which could lead to incomplete financial analysis."
+                  ],
+                  "completeness": 100
+                },
+                "confidence": 90,
+                "recommendations": [
+                  "Missing required fields: companyName",
+                  "The 'period' is listed as 2024, which is a future date and should be verified for accuracy.",
+                  "The 'taxExpense' is 0, which might be unusual depending on the jurisdiction and tax regulations applicable to the company.",
+                  "The 'interestIncome' and 'otherIncome' are not included in the Extracted Data, which could lead to incomplete financial analysis."
+                ]
+              },
+              "isPublic": false,
+              "accessLevel": "private",
+              "sharedWith": null,
+              "version": 1,
+              "parentDocumentId": null,
+              "thumbnailPath": null,
+              "previewPath": null,
+              "createdAt": "2025-11-15T03:34:02.201Z",
+              "updatedAt": "2025-11-15T03:36:51.040Z",
+              "analyses": [
+                {
+                  "id": "cmhzqjm1u0001sf4io5ibcbz1",
+                  "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                  "documentId": "cmhzqfzrs0009sfh5xp7tqine",
+                  "analysisType": "full_analysis",
+                  "documentType": "income_statement",
+                  "businessContext": null,
+                  "questions": [],
+                  "answers": [],
+                  "confidence": 90,
+                  "companyName": null,
+                  "period": "2024",
+                  "analysisTimestamp": "2025-11-15T03:36:51.043Z",
+                  "createdAt": "2025-11-15T03:36:51.043Z",
+                  "updatedAt": "2025-11-15T03:36:51.043Z"
+                }
+              ]
+            },
+            {
+              "id": "cmhzqfr4c0001sfh50hpqjhmk",
+              "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+              "filename": "kerbe_tech_balance_sheet_2024.csv",
+              "originalName": "kerbe_tech_balance_sheet_2024.csv",
+              "mimeType": "text/csv",
+              "fileSize": 773,
+              "documentType": "balance_sheet",
+              "filePath": "cmgtv2kjt0000sfzqb6d91ez0/1763177630986_kerbe_tech_balance_sheet_2024.csv",
+              "fileHash": "c8a7d72716be09e31887b716b6db30b7c3a1d72245b1ba548edab3454a705228",
+              "storageProvider": "local",
+              "storageKey": null,
+              "folderId": null,
+              "tags": null,
+              "description": null,
+              "status": "completed",
+              "processingError": null,
+              "processingProgress": 0,
+              "analysisResults": {
+                "success": true,
+                "documentType": "balance_sheet",
+                "extractedData": {
+                  "companyName": "Kerbe Tech",
+                  "period": 2024,
+                  "totalAssets": 19450000,
+                  "currentAssets": 5650000,
+                  "nonCurrentAssets": 13800000,
+                  "totalLiabilities": 8750000,
+                  "currentLiabilities": 2450000,
+                  "nonCurrentLiabilities": 6300000,
+                  "totalEquity": 10700000,
+                  "retainedEarnings": 5200000,
+                  "cash": 2500000,
+                  "accountsReceivable": 1800000,
+                  "inventory": 1200000,
+                  "propertyPlantEquipment": 8500000,
+                  "accountsPayable": 950000,
+                  "shortTermDebt": 1200000,
+                  "longTermDebt": 5500000,
+                  "commonStock": null
+                },
+                "validation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "mathValidation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "errorDetection": {
+                  "isValid": false,
+                  "missingFields": [],
+                  "invalidFields": [
+                    "The 'commonStock' field in the extracted data is null, but the original text lists 'Share Capital' as 5000000. This inconsistency needs to be resolved.",
+                    "The sum of 'currentLiabilities' (2450000) and 'nonCurrentLiabilities' (6300000) should equal 'totalLiabilities' (8750000), which it does. However, the breakdown of 'currentLiabilities' in the original text (Accounts Payable: 950000, Short-term Debt: 1200000, Accrued Expenses: 300000) sums to 2450000, which is correct, but the breakdown of 'nonCurrentLiabilities' (Long-term Debt: 5500000, Deferred Tax Liabilities: 800000) sums to 6300000, which is also correct. No error here, but ensure these values are accurate."
+                  ],
+                  "warnings": [
+                    "The 'retainedEarnings' value in the extracted data (5200000) matches the original text, but ensure this value is accurate as it significantly impacts 'totalEquity'.",
+                    "The 'Other Comprehensive Income' is listed as 500000 in the original text but is not included in the extracted data. Ensure this is intentional."
+                  ],
+                  "completeness": 100
+                },
+                "confidence": 100,
+                "recommendations": [
+                  "The 'retainedEarnings' value in the extracted data (5200000) matches the original text, but ensure this value is accurate as it significantly impacts 'totalEquity'.",
+                  "The 'Other Comprehensive Income' is listed as 500000 in the original text but is not included in the extracted data. Ensure this is intentional."
+                ]
+              },
+              "isPublic": false,
+              "accessLevel": "private",
+              "sharedWith": null,
+              "version": 1,
+              "parentDocumentId": null,
+              "thumbnailPath": null,
+              "previewPath": null,
+              "createdAt": "2025-11-15T03:33:50.988Z",
+              "updatedAt": "2025-11-15T03:37:17.003Z",
+              "analyses": [
+                {
+                  "id": "cmhzqk6310009sf4iujh4c2t6",
+                  "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                  "documentId": "cmhzqfr4c0001sfh50hpqjhmk",
+                  "analysisType": "full_analysis",
+                  "documentType": "balance_sheet",
+                  "businessContext": null,
+                  "questions": [],
+                  "answers": [],
+                  "confidence": 100,
+                  "companyName": "Kerbe Tech",
+                  "period": "2024",
+                  "analysisTimestamp": "2025-11-15T03:37:17.006Z",
+                  "createdAt": "2025-11-15T03:37:17.006Z",
+                  "updatedAt": "2025-11-15T03:37:17.006Z"
+                }
+              ]
+            }
+          ],
+          "total": 4
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.216Z",
+      "warning": false
+    },
+    {
+      "category": "Auth",
+      "name": "Missing User ID",
+      "passed": true,
+      "message": "Status: 400 (should require userId)",
+      "details": {
+        "response": {
+          "success": false,
+          "error": "User ID is required"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.217Z",
+      "warning": false
+    },
+    {
+      "category": "Auth",
+      "name": "Invalid User ID Format",
+      "passed": true,
+      "message": "Status: 400 (should reject invalid format)",
+      "details": {
+        "response": {
+          "success": false,
+          "error": "Invalid user ID format. Only alphanumeric characters, underscores, and hyphens are allowed."
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.218Z",
+      "warning": false
+    },
+    {
+      "category": "Auth",
+      "name": "Long User ID",
+      "passed": true,
+      "message": "Status: 400 (should reject overly long userId)",
+      "details": {
+        "response": {
+          "success": false,
+          "error": "User ID too long. Maximum length is 255 characters."
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.219Z",
+      "warning": false
+    },
+    {
+      "category": "Documents",
+      "name": "Empty File Upload",
+      "passed": true,
+      "message": "Status: 400 (should reject empty files)",
+      "details": {
+        "response": {
+          "success": false,
+          "error": "No file provided"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.221Z",
+      "warning": false
+    },
+    {
+      "category": "Documents",
+      "name": "Missing File",
+      "passed": true,
+      "message": "Status: 400 (should handle missing file)",
+      "details": {
+        "response": {
+          "success": false,
+          "error": "Failed to parse form data"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.225Z",
+      "warning": false
+    },
+    {
+      "category": "Documents",
+      "name": "Invalid Document Type",
+      "passed": true,
+      "message": "Status: 400 (should handle invalid type)",
+      "details": {
+        "response": {
+          "success": false,
+          "error": "Failed to parse form data"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.226Z",
+      "warning": false
+    },
+    {
+      "category": "Documents",
+      "name": "Get Document Types",
+      "passed": false,
+      "message": "Status: 200, Types: 0",
+      "details": {
+        "response": {
+          "success": true,
+          "documentTypes": [
+            {
+              "type": "balance_sheet",
+              "name": "Balance Sheet",
+              "description": "Assets, Liabilities, and Equity statement",
+              "requiredFields": [
+                "companyName",
+                "totalAssets",
+                "totalLiabilities",
+                "totalEquity"
+              ],
+              "supportedFormats": [
+                "PDF",
+                "DOC",
+                "DOCX",
+                "XLSX",
+                "CSV",
+                "TXT"
+              ]
+            },
+            {
+              "type": "income_statement",
+              "name": "Income Statement",
+              "description": "Revenue, Expenses, and Profit/Loss statement",
+              "requiredFields": [
+                "companyName",
+                "totalRevenue",
+                "netIncome"
+              ],
+              "supportedFormats": [
+                "PDF",
+                "DOC",
+                "DOCX",
+                "XLSX",
+                "CSV",
+                "TXT"
+              ]
+            },
+            {
+              "type": "cash_flow",
+              "name": "Cash Flow Statement",
+              "description": "Cash inflows and outflows statement",
+              "requiredFields": [
+                "companyName",
+                "operatingCashFlow",
+                "netCashFlow"
+              ],
+              "supportedFormats": [
+                "PDF",
+                "DOC",
+                "DOCX",
+                "XLSX",
+                "CSV",
+                "TXT"
+              ]
+            },
+            {
+              "type": "order_sheets",
+              "name": "Order Sheets",
+              "description": "Sales and purchase orders",
+              "requiredFields": [
+                "companyName",
+                "orderDate",
+                "totalAmount"
+              ],
+              "supportedFormats": [
+                "PDF",
+                "DOC",
+                "DOCX",
+                "XLSX",
+                "CSV",
+                "TXT"
+              ]
+            },
+            {
+              "type": "inventory_reports",
+              "name": "Inventory Reports",
+              "description": "Stock levels and inventory tracking",
+              "requiredFields": [
+                "companyName",
+                "reportDate",
+                "totalInventoryValue"
+              ],
+              "supportedFormats": [
+                "PDF",
+                "DOC",
+                "DOCX",
+                "XLSX",
+                "CSV",
+                "TXT"
+              ]
+            },
+            {
+              "type": "customer_reports",
+              "name": "Customer Reports",
+              "description": "Customer data and analytics",
+              "requiredFields": [
+                "companyName",
+                "reportDate",
+                "totalCustomers"
+              ],
+              "supportedFormats": [
+                "PDF",
+                "DOC",
+                "DOCX",
+                "XLSX",
+                "CSV",
+                "TXT"
+              ]
+            },
+            {
+              "type": "supplier_reports",
+              "name": "Supplier Reports",
+              "description": "Supplier performance and data",
+              "requiredFields": [
+                "companyName",
+                "reportDate",
+                "totalSuppliers"
+              ],
+              "supportedFormats": [
+                "PDF",
+                "DOC",
+                "DOCX",
+                "XLSX",
+                "CSV",
+                "TXT"
+              ]
+            },
+            {
+              "type": "financial_reports",
+              "name": "Financial Reports",
+              "description": "General financial reports and summaries",
+              "requiredFields": [
+                "companyName",
+                "reportDate",
+                "totalRevenue"
+              ],
+              "supportedFormats": [
+                "PDF",
+                "DOC",
+                "DOCX",
+                "XLSX",
+                "CSV",
+                "TXT"
+              ]
+            }
+          ]
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.227Z",
+      "warning": false
+    },
+    {
+      "category": "Documents",
+      "name": "List User Documents",
+      "passed": true,
+      "message": "Status: 200",
+      "details": {
+        "response": {
+          "success": true,
+          "documents": [
+            {
+              "id": "cmhzqgkzk000psfh580jl8hg4",
+              "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+              "filename": "test-empty.csv",
+              "originalName": "test-empty.csv",
+              "mimeType": "text/csv",
+              "fileSize": 0,
+              "documentType": "balance_sheet",
+              "filePath": "cmgtv2kjt0000sfzqb6d91ez0/1763177669695_test-empty.csv",
+              "fileHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "storageProvider": "local",
+              "storageKey": null,
+              "folderId": null,
+              "tags": null,
+              "description": null,
+              "status": "completed",
+              "processingError": null,
+              "processingProgress": 0,
+              "analysisResults": {
+                "success": true,
+                "documentType": "balance_sheet",
+                "extractedData": {
+                  "companyName": null,
+                  "period": null,
+                  "totalAssets": null,
+                  "currentAssets": null,
+                  "nonCurrentAssets": null,
+                  "totalLiabilities": null,
+                  "currentLiabilities": null,
+                  "nonCurrentLiabilities": null,
+                  "totalEquity": null,
+                  "retainedEarnings": null,
+                  "cash": null,
+                  "accountsReceivable": null,
+                  "inventory": null,
+                  "propertyPlantEquipment": null,
+                  "accountsPayable": null,
+                  "shortTermDebt": null,
+                  "longTermDebt": null,
+                  "commonStock": null
+                },
+                "validation": {
+                  "isValid": false,
+                  "missingFields": [
+                    "companyName",
+                    "totalAssets",
+                    "totalLiabilities",
+                    "totalEquity"
+                  ],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 0
+                },
+                "mathValidation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "errorDetection": {
+                  "isValid": false,
+                  "missingFields": [],
+                  "invalidFields": [
+                    "All fields are null, indicating missing or incomplete data extraction.",
+                    "Missing company name and period, which are essential for identifying the balance sheet."
+                  ],
+                  "warnings": [
+                    "The absence of values for totalAssets, totalLiabilities, and totalEquity makes it impossible to verify the balance sheet equation (Assets = Liabilities + Equity).",
+                    "Missing values for key components like cash, accounts receivable, and inventory, which are critical for assessing liquidity."
+                  ],
+                  "completeness": 100
+                },
+                "confidence": 60,
+                "recommendations": [
+                  "Missing required fields: companyName, totalAssets, totalLiabilities, totalEquity",
+                  "The absence of values for totalAssets, totalLiabilities, and totalEquity makes it impossible to verify the balance sheet equation (Assets = Liabilities + Equity).",
+                  "Missing values for key components like cash, accounts receivable, and inventory, which are critical for assessing liquidity."
+                ]
+              },
+              "isPublic": false,
+              "accessLevel": "private",
+              "sharedWith": null,
+              "version": 1,
+              "parentDocumentId": null,
+              "thumbnailPath": null,
+              "previewPath": null,
+              "createdAt": "2025-11-15T03:34:29.696Z",
+              "updatedAt": "2025-11-15T03:35:45.722Z",
+              "analyses": [
+                {
+                  "id": "cmhzqi7nf0009sfx0zv0y2lg0",
+                  "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                  "documentId": "cmhzqgkzk000psfh580jl8hg4",
+                  "analysisType": "full_analysis",
+                  "documentType": "balance_sheet",
+                  "businessContext": null,
+                  "questions": [],
+                  "answers": [],
+                  "confidence": 60,
+                  "companyName": null,
+                  "period": "2025-11-15T03:35:45.723Z",
+                  "analysisTimestamp": "2025-11-15T03:35:45.723Z",
+                  "createdAt": "2025-11-15T03:35:45.723Z",
+                  "updatedAt": "2025-11-15T03:35:45.723Z"
+                }
+              ]
+            },
+            {
+              "id": "cmhzqg8r3000hsfh5mh3l6kyq",
+              "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+              "filename": "kerbe_tech_cash_flow_2024.csv",
+              "originalName": "kerbe_tech_cash_flow_2024.csv",
+              "mimeType": "text/csv",
+              "fileSize": 779,
+              "documentType": "cash_flow",
+              "filePath": "cmgtv2kjt0000sfzqb6d91ez0/1763177653837_kerbe_tech_cash_flow_2024.csv",
+              "fileHash": "04c07f730044d68e5e1c83dd99cdfef1231667465d4c74b2a8364276e725f8bb",
+              "storageProvider": "local",
+              "storageKey": null,
+              "folderId": null,
+              "tags": null,
+              "description": null,
+              "status": "completed",
+              "processingError": null,
+              "processingProgress": 0,
+              "analysisResults": {
+                "success": true,
+                "documentType": "cash_flow",
+                "extractedData": {
+                  "companyName": "Kerbe Tech",
+                  "period": 2024,
+                  "operatingCashFlow": -155000,
+                  "investingCashFlow": -1000000,
+                  "financingCashFlow": 1300000,
+                  "netCashFlow": 145000
+                },
+                "validation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "mathValidation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "errorDetection": {
+                  "isValid": false,
+                  "missingFields": [],
+                  "invalidFields": [
+                    "The net cash flow calculation is incorrect. The sum of operating, investing, and financing cash flows (-155000 + -1000000 + 1300000) should equal the net cash flow, which is 145000. The correct net cash flow should be 145000, which matches the provided net cash flow, but the calculation should be verified.",
+                    "The net increase in cash (145000) does not match the difference between cash at the beginning of the period (2355000) and cash at the end of the period (2500000). The difference should be 145000, which matches the net increase, but the calculation should be verified."
+                  ],
+                  "warnings": [
+                    "The operating cash flow is negative, which might indicate operational issues or a temporary situation that should be investigated further.",
+                    "The investing cash flow is significantly negative, suggesting high capital expenditures, which could be a strategic investment or a potential cash drain.",
+                    "The financing cash flow is positive and large, indicating heavy reliance on external financing, which could be a risk if not managed properly."
+                  ],
+                  "completeness": 100
+                },
+                "confidence": 100,
+                "recommendations": [
+                  "The operating cash flow is negative, which might indicate operational issues or a temporary situation that should be investigated further.",
+                  "The investing cash flow is significantly negative, suggesting high capital expenditures, which could be a strategic investment or a potential cash drain.",
+                  "The financing cash flow is positive and large, indicating heavy reliance on external financing, which could be a risk if not managed properly."
+                ]
+              },
+              "isPublic": false,
+              "accessLevel": "private",
+              "sharedWith": null,
+              "version": 1,
+              "parentDocumentId": null,
+              "thumbnailPath": null,
+              "previewPath": null,
+              "createdAt": "2025-11-15T03:34:13.839Z",
+              "updatedAt": "2025-11-15T03:36:59.236Z",
+              "analyses": [
+                {
+                  "id": "cmhzqjsdj0005sf4inczgnyjy",
+                  "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                  "documentId": "cmhzqg8r3000hsfh5mh3l6kyq",
+                  "analysisType": "full_analysis",
+                  "documentType": "cash_flow",
+                  "businessContext": null,
+                  "questions": [],
+                  "answers": [],
+                  "confidence": 100,
+                  "companyName": "Kerbe Tech",
+                  "period": "2024",
+                  "analysisTimestamp": "2025-11-15T03:36:59.239Z",
+                  "createdAt": "2025-11-15T03:36:59.239Z",
+                  "updatedAt": "2025-11-15T03:36:59.239Z"
+                }
+              ]
+            },
+            {
+              "id": "cmhzqfzrs0009sfh5xp7tqine",
+              "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+              "filename": "kerbe_tech_income_statement_2024.csv",
+              "originalName": "kerbe_tech_income_statement_2024.csv",
+              "mimeType": "text/csv",
+              "fileSize": 675,
+              "documentType": "income_statement",
+              "filePath": "cmgtv2kjt0000sfzqb6d91ez0/1763177642198_kerbe_tech_income_statement_2024.csv",
+              "fileHash": "76eba362d621714083031f6e1ee0cd4e8b9c0b8b8b962c72e1b7334fa415f117",
+              "storageProvider": "local",
+              "storageKey": null,
+              "folderId": null,
+              "tags": null,
+              "description": null,
+              "status": "completed",
+              "processingError": null,
+              "processingProgress": 0,
+              "analysisResults": {
+                "success": true,
+                "documentType": "income_statement",
+                "extractedData": {
+                  "companyName": null,
+                  "period": 2024,
+                  "totalRevenue": 12350000,
+                  "netIncome": -305000,
+                  "grossProfit": 4150000,
+                  "operatingExpenses": 4350000,
+                  "operatingIncome": -200000,
+                  "interestExpense": -180000,
+                  "taxExpense": 0,
+                  "costOfGoodsSold": 8200000
+                },
+                "validation": {
+                  "isValid": false,
+                  "missingFields": [
+                    "companyName"
+                  ],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 66.66666666666666
+                },
+                "mathValidation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "errorDetection": {
+                  "isValid": false,
+                  "missingFields": [],
+                  "invalidFields": [
+                    "The 'companyName' field is null, which is critical information missing from the income statement.",
+                    "The 'interestExpense' in the Extracted Data is shown as -180000, which is correct as an expense, but the Original Text shows it as -180000, which is consistent. However, the 'interestIncome' and 'otherIncome' are not included in the Extracted Data, leading to a mismatch in 'Total Other Income (Expense)'.",
+                    "The 'operatingIncome' in the Extracted Data is -200000, which matches the Original Text, but the calculation should be verified: Gross Profit (4150000) - Operating Expenses (4350000) = -200000, which is correct.",
+                    "The 'netIncome' in the Extracted Data is -305000, which matches the Original Text, but the calculation should be verified: Operating Income (-200000) + Total Other Income (Expense) (-105000) = -305000, which is correct."
+                  ],
+                  "warnings": [
+                    "The 'period' is listed as 2024, which is a future date and should be verified for accuracy.",
+                    "The 'taxExpense' is 0, which might be unusual depending on the jurisdiction and tax regulations applicable to the company.",
+                    "The 'interestIncome' and 'otherIncome' are not included in the Extracted Data, which could lead to incomplete financial analysis."
+                  ],
+                  "completeness": 100
+                },
+                "confidence": 90,
+                "recommendations": [
+                  "Missing required fields: companyName",
+                  "The 'period' is listed as 2024, which is a future date and should be verified for accuracy.",
+                  "The 'taxExpense' is 0, which might be unusual depending on the jurisdiction and tax regulations applicable to the company.",
+                  "The 'interestIncome' and 'otherIncome' are not included in the Extracted Data, which could lead to incomplete financial analysis."
+                ]
+              },
+              "isPublic": false,
+              "accessLevel": "private",
+              "sharedWith": null,
+              "version": 1,
+              "parentDocumentId": null,
+              "thumbnailPath": null,
+              "previewPath": null,
+              "createdAt": "2025-11-15T03:34:02.201Z",
+              "updatedAt": "2025-11-15T03:36:51.040Z",
+              "analyses": [
+                {
+                  "id": "cmhzqjm1u0001sf4io5ibcbz1",
+                  "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                  "documentId": "cmhzqfzrs0009sfh5xp7tqine",
+                  "analysisType": "full_analysis",
+                  "documentType": "income_statement",
+                  "businessContext": null,
+                  "questions": [],
+                  "answers": [],
+                  "confidence": 90,
+                  "companyName": null,
+                  "period": "2024",
+                  "analysisTimestamp": "2025-11-15T03:36:51.043Z",
+                  "createdAt": "2025-11-15T03:36:51.043Z",
+                  "updatedAt": "2025-11-15T03:36:51.043Z"
+                }
+              ]
+            },
+            {
+              "id": "cmhzqfr4c0001sfh50hpqjhmk",
+              "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+              "filename": "kerbe_tech_balance_sheet_2024.csv",
+              "originalName": "kerbe_tech_balance_sheet_2024.csv",
+              "mimeType": "text/csv",
+              "fileSize": 773,
+              "documentType": "balance_sheet",
+              "filePath": "cmgtv2kjt0000sfzqb6d91ez0/1763177630986_kerbe_tech_balance_sheet_2024.csv",
+              "fileHash": "c8a7d72716be09e31887b716b6db30b7c3a1d72245b1ba548edab3454a705228",
+              "storageProvider": "local",
+              "storageKey": null,
+              "folderId": null,
+              "tags": null,
+              "description": null,
+              "status": "completed",
+              "processingError": null,
+              "processingProgress": 0,
+              "analysisResults": {
+                "success": true,
+                "documentType": "balance_sheet",
+                "extractedData": {
+                  "companyName": "Kerbe Tech",
+                  "period": 2024,
+                  "totalAssets": 19450000,
+                  "currentAssets": 5650000,
+                  "nonCurrentAssets": 13800000,
+                  "totalLiabilities": 8750000,
+                  "currentLiabilities": 2450000,
+                  "nonCurrentLiabilities": 6300000,
+                  "totalEquity": 10700000,
+                  "retainedEarnings": 5200000,
+                  "cash": 2500000,
+                  "accountsReceivable": 1800000,
+                  "inventory": 1200000,
+                  "propertyPlantEquipment": 8500000,
+                  "accountsPayable": 950000,
+                  "shortTermDebt": 1200000,
+                  "longTermDebt": 5500000,
+                  "commonStock": null
+                },
+                "validation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "mathValidation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "errorDetection": {
+                  "isValid": false,
+                  "missingFields": [],
+                  "invalidFields": [
+                    "The 'commonStock' field in the extracted data is null, but the original text lists 'Share Capital' as 5000000. This inconsistency needs to be resolved.",
+                    "The sum of 'currentLiabilities' (2450000) and 'nonCurrentLiabilities' (6300000) should equal 'totalLiabilities' (8750000), which it does. However, the breakdown of 'currentLiabilities' in the original text (Accounts Payable: 950000, Short-term Debt: 1200000, Accrued Expenses: 300000) sums to 2450000, which is correct, but the breakdown of 'nonCurrentLiabilities' (Long-term Debt: 5500000, Deferred Tax Liabilities: 800000) sums to 6300000, which is also correct. No error here, but ensure these values are accurate."
+                  ],
+                  "warnings": [
+                    "The 'retainedEarnings' value in the extracted data (5200000) matches the original text, but ensure this value is accurate as it significantly impacts 'totalEquity'.",
+                    "The 'Other Comprehensive Income' is listed as 500000 in the original text but is not included in the extracted data. Ensure this is intentional."
+                  ],
+                  "completeness": 100
+                },
+                "confidence": 100,
+                "recommendations": [
+                  "The 'retainedEarnings' value in the extracted data (5200000) matches the original text, but ensure this value is accurate as it significantly impacts 'totalEquity'.",
+                  "The 'Other Comprehensive Income' is listed as 500000 in the original text but is not included in the extracted data. Ensure this is intentional."
+                ]
+              },
+              "isPublic": false,
+              "accessLevel": "private",
+              "sharedWith": null,
+              "version": 1,
+              "parentDocumentId": null,
+              "thumbnailPath": null,
+              "previewPath": null,
+              "createdAt": "2025-11-15T03:33:50.988Z",
+              "updatedAt": "2025-11-15T03:37:17.003Z",
+              "analyses": [
+                {
+                  "id": "cmhzqk6310009sf4iujh4c2t6",
+                  "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                  "documentId": "cmhzqfr4c0001sfh50hpqjhmk",
+                  "analysisType": "full_analysis",
+                  "documentType": "balance_sheet",
+                  "businessContext": null,
+                  "questions": [],
+                  "answers": [],
+                  "confidence": 100,
+                  "companyName": "Kerbe Tech",
+                  "period": "2024",
+                  "analysisTimestamp": "2025-11-15T03:37:17.006Z",
+                  "createdAt": "2025-11-15T03:37:17.006Z",
+                  "updatedAt": "2025-11-15T03:37:17.006Z"
+                }
+              ]
+            }
+          ],
+          "total": 4
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.228Z",
+      "warning": false
+    },
+    {
+      "category": "KPIs",
+      "name": "Get KPIs",
+      "passed": true,
+      "message": "Status: 200",
+      "details": {
+        "response": {
+          "revenueToday": 12345,
+          "ordersToday": 87,
+          "activeCustomers": 421
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.243Z",
+      "warning": false
+    },
+    {
+      "category": "KPIs",
+      "name": "Dashboard KPIs",
+      "passed": true,
+      "message": "Status: 200",
+      "details": {
+        "response": {
+          "success": true,
+          "kpis": {
+            "totalDocuments": 4,
+            "completedDocuments": 4,
+            "documentTypes": [
+              "balance_sheet",
+              "cash_flow",
+              "income_statement"
+            ],
+            "latestPeriod": 2024,
+            "totalRevenue": 12350000,
+            "totalAssets": 19450000,
+            "totalLiabilities": 8750000
+          }
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.245Z",
+      "warning": false
+    },
+    {
+      "category": "KPIs",
+      "name": "Financial Data",
+      "passed": true,
+      "message": "Status: 200",
+      "details": {
+        "response": {
+          "success": true,
+          "data": {
+            "financialData": [
+              {
+                "companyName": "Unknown Company",
+                "period": 2024,
+                "balanceSheet": {
+                  "totalAssets": 19450000,
+                  "currentAssets": 5650000,
+                  "nonCurrentAssets": 13800000,
+                  "totalLiabilities": 8750000,
+                  "currentLiabilities": 2450000,
+                  "nonCurrentLiabilities": 6300000,
+                  "totalEquity": 10700000,
+                  "cash": 2500000,
+                  "accountsReceivable": 1800000,
+                  "inventory": 1200000,
+                  "accountsPayable": 950000,
+                  "shortTermDebt": 1200000,
+                  "longTermDebt": 5500000,
+                  "retainedEarnings": 5200000
+                },
+                "incomeStatement": {
+                  "totalRevenue": 12350000,
+                  "costOfGoodsSold": 8200000,
+                  "grossProfit": 4150000,
+                  "operatingExpenses": 4350000,
+                  "operatingIncome": -200000,
+                  "interestExpense": -180000,
+                  "taxExpense": 0,
+                  "netIncome": -305000
+                },
+                "cashFlow": {
+                  "operatingCashFlow": -155000,
+                  "investingCashFlow": -1000000,
+                  "financingCashFlow": 1300000,
+                  "netCashFlow": 145000
+                }
+              },
+              {
+                "companyName": "Unknown Company",
+                "period": "2025-11-15",
+                "balanceSheet": {
+                  "totalAssets": 0,
+                  "currentAssets": 0,
+                  "nonCurrentAssets": 0,
+                  "totalLiabilities": 0,
+                  "currentLiabilities": 0,
+                  "nonCurrentLiabilities": 0,
+                  "totalEquity": 0,
+                  "cash": 0,
+                  "accountsReceivable": 0,
+                  "inventory": 0,
+                  "accountsPayable": 0,
+                  "shortTermDebt": 0,
+                  "longTermDebt": 0,
+                  "retainedEarnings": 0
+                },
+                "incomeStatement": {
+                  "totalRevenue": 0,
+                  "costOfGoodsSold": 0,
+                  "grossProfit": 0,
+                  "operatingExpenses": 0,
+                  "operatingIncome": 0,
+                  "interestExpense": 0,
+                  "taxExpense": 0,
+                  "netIncome": 0
+                },
+                "cashFlow": {
+                  "operatingCashFlow": 0,
+                  "investingCashFlow": 0,
+                  "financingCashFlow": 0,
+                  "netCashFlow": 0
+                }
+              }
+            ],
+            "dataCompleteness": {
+              "score": 100,
+              "requiredDocs": 3,
+              "totalRequiredDocs": 3,
+              "recommendedDocs": 4,
+              "totalRecommendedDocs": 36,
+              "monthsOfData": 2,
+              "hasBalanceSheet": true,
+              "hasIncomeStatement": true,
+              "hasCashFlow": true
+            },
+            "documentCount": 4
+          }
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.247Z",
+      "warning": false
+    },
+    {
+      "category": "Chat",
+      "name": "Get Chat History",
+      "passed": true,
+      "message": "Status: 200",
+      "details": {
+        "response": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "What is the total revenue?",
+              "createdAt": "2025-11-18T17:22:28.756Z"
+            },
+            {
+              "role": "assistant",
+              "content": "To determine the total revenue, I would need access to the company's Income Statement or any relevant financial documents that detail sales figures. The Income Statement typically lists total revenue as the sum of all sales and income generated by the company during a specific period.\n\nIf you have an Income Statement or any sales data available, please provide it, and I can help you calculate the total revenue. Alternatively, if you have any specific questions about revenue analysis or related financial metrics, feel free to ask!",
+              "createdAt": "2025-11-18T17:22:28.760Z"
+            },
+            {
+              "role": "user",
+              "content": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "createdAt": "2025-11-18T17:22:30.928Z"
+            },
+            {
+              "role": "assistant",
+              "content": "It seems like there was an error or an unintended input. If you have specific financial data or documents you would like me to analyze, such as an Income Statement to determine total revenue, please provide that information. I'm here to help with any financial analysis or business insights you need. Let me know how I can assist you!",
+              "createdAt": "2025-11-18T17:22:30.932Z"
+            }
+          ]
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.249Z",
+      "warning": false
+    },
+    {
+      "category": "Chat",
+      "name": "Chat History Without User",
+      "passed": true,
+      "message": "Status: 400 (should require userId)",
+      "details": {
+        "response": {
+          "error": "Missing x-user-id"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:29.249Z",
+      "warning": false
+    },
+    {
+      "category": "Chat",
+      "name": "Ask Question",
+      "passed": true,
+      "message": "Status: 200",
+      "details": {
+        "response": {
+          "answer": "To accurately determine the total revenue, I would need access to the company's Income Statement or any relevant financial documents that detail sales figures. The total revenue is typically listed at the top of the Income Statement and includes all income generated from sales of goods or services before any expenses are deducted.\n\nIf you have an Income Statement or any sales data available, please share it, and I can help you calculate the total revenue. If you have any other questions or need further assistance, feel free to let me know!",
+          "usage": {
+            "prompt_tokens": 953,
+            "completion_tokens": 100,
+            "total_tokens": 1053,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        }
+      },
+      "timestamp": "2025-11-18T18:11:31.000Z",
+      "warning": false
+    },
+    {
+      "category": "Chat",
+      "name": "Empty Question",
+      "passed": true,
+      "message": "Status: 400 (should handle empty question)",
+      "details": {
+        "response": {
+          "error": "Empty question"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:31.002Z",
+      "warning": false
+    },
+    {
+      "category": "Chat",
+      "name": "Very Long Question",
+      "passed": true,
+      "message": "Status: 200 (should handle long input)",
+      "details": {
+        "response": {
+          "answer": "It seems like there was another unintended input. If you have specific financial data or documents you would like me to analyze, such as an Income Statement to determine total revenue, please provide that information. I'm here to help with any financial analysis or business insights you need. Let me know how I can assist you!",
+          "usage": {
+            "prompt_tokens": 1561,
+            "completion_tokens": 62,
+            "total_tokens": 1623,
+            "prompt_tokens_details": {
+              "cached_tokens": 1024,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          }
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.727Z",
+      "warning": false
+    },
+    {
+      "category": "Search",
+      "name": "Search Query",
+      "passed": true,
+      "message": "Status: 200, Results: 2",
+      "details": {
+        "response": {
+          "success": true,
+          "results": [
+            {
+              "id": "cmhzqfr4c0001sfh50hpqjhmk",
+              "type": "document",
+              "title": "kerbe_tech_balance_sheet_2024.csv",
+              "description": "Kerbe Tech • balance_sheet • 3 days ago",
+              "url": "/dashboard/documents?id=cmhzqfr4c0001sfh50hpqjhmk",
+              "metadata": {
+                "documentType": "balance_sheet",
+                "status": "completed"
+              },
+              "relevanceScore": 60
+            },
+            {
+              "id": "cmhzqgkzk000psfh580jl8hg4",
+              "type": "document",
+              "title": "test-empty.csv",
+              "description": "balance_sheet document • 3 days ago",
+              "url": "/dashboard/documents?id=cmhzqgkzk000psfh580jl8hg4",
+              "metadata": {
+                "documentType": "balance_sheet",
+                "status": "completed"
+              },
+              "relevanceScore": 55
+            }
+          ],
+          "total": 2,
+          "query": "balance"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.730Z",
+      "warning": false
+    },
+    {
+      "category": "Search",
+      "name": "Search Without Query",
+      "passed": true,
+      "message": "Status: 400 (should require query)",
+      "details": {
+        "response": {
+          "success": false,
+          "error": "Search query is required"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.731Z",
+      "warning": false
+    },
+    {
+      "category": "Search",
+      "name": "Search Without User",
+      "passed": true,
+      "message": "Status: 400 (should require userId)",
+      "details": {
+        "response": {
+          "success": false,
+          "error": "User ID is required"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.732Z",
+      "warning": false
+    },
+    {
+      "category": "Search",
+      "name": "Search XSS Attempt",
+      "passed": true,
+      "message": "Status: 200 (should handle XSS attempts safely)",
+      "details": {
+        "response": {
+          "success": true,
+          "results": [],
+          "total": 0,
+          "query": "<script>alert('xss')</script>"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.733Z",
+      "warning": false
+    },
+    {
+      "category": "API",
+      "name": "Analytics Overview",
+      "passed": false,
+      "message": "Status: 500",
+      "details": {
+        "response": {
+          "statusCode": 500,
+          "code": "P2010",
+          "error": "Internal Server Error",
+          "message": "\nInvalid `prisma.$executeRaw()` invocation:\n\n\nRaw query failed. Code: `1`. Message: `no such function: set_config`"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.736Z",
+      "warning": false
+    },
+    {
+      "category": "API",
+      "name": "Dashboard Overview",
+      "passed": true,
+      "message": "Status: 200",
+      "details": {
+        "response": {
+          "success": true,
+          "data": {
+            "metrics": {
+              "documentsAnalyzed": 4,
+              "documentTypes": [
+                "balance_sheet",
+                "cash_flow",
+                "income_statement"
+              ],
+              "avgConfidence": 87.5,
+              "completeness": 50,
+              "keyInsights": [
+                "Analyzed 4 documents across 3 categories",
+                "Strong data coverage with 50% completeness",
+                "Negative profit margin of -2.5% indicates operating losses"
+              ],
+              "warnings": [
+                "Operating at a loss - review cost structure and pricing strategy",
+                "Negative operating cash flow - monitor cash runway carefully"
+              ],
+              "recommendations": [
+                "Upload a balance sheet to track assets and financial position",
+                "Focus on margin improvement through cost optimization or pricing strategy"
+              ],
+              "operatingCashFlow": -155000,
+              "totalRevenue": 12350000,
+              "netIncome": -305000,
+              "oldestPeriod": "2024",
+              "latestPeriod": "2024",
+              "profitMargin": -2.4696356275303644
+            },
+            "trends": {
+              "periods": [
+                {
+                  "period": "2024",
+                  "revenue": 12350000,
+                  "assets": 19450000,
+                  "liabilities": 8750000,
+                  "equity": 10700000,
+                  "netIncome": -305000,
+                  "cashFlow": -155000,
+                  "documentCount": 3
+                }
+              ],
+              "totalPeriods": 1,
+              "hasTrendData": false
+            },
+            "summary": {
+              "byType": [
+                {
+                  "type": "balance_sheet",
+                  "total": 2,
+                  "completed": 2,
+                  "processing": 0,
+                  "failed": 0,
+                  "latestUpload": "2025-11-15T03:34:29.696Z"
+                },
+                {
+                  "type": "cash_flow",
+                  "total": 1,
+                  "completed": 1,
+                  "processing": 0,
+                  "failed": 0,
+                  "latestUpload": "2025-11-15T03:34:13.839Z"
+                },
+                {
+                  "type": "income_statement",
+                  "total": 1,
+                  "completed": 1,
+                  "processing": 0,
+                  "failed": 0,
+                  "latestUpload": "2025-11-15T03:34:02.201Z"
+                }
+              ],
+              "totalDocuments": 4,
+              "totalTypes": 3
+            },
+            "recentActivity": [
+              {
+                "id": "cmhzqk633000bsf4ihrynr1lv",
+                "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                "activityType": "analysis",
+                "description": "Analyzed document: balance_sheet",
+                "metadata": {
+                  "analysisId": "cmhzqk6310009sf4iujh4c2t6",
+                  "documentId": "cmhzqfr4c0001sfh50hpqjhmk",
+                  "analysisType": "full_analysis",
+                  "confidence": 100
+                },
+                "ipAddress": null,
+                "userAgent": null,
+                "createdAt": "2025-11-15T03:37:17.007Z"
+              },
+              {
+                "id": "cmhzqjsdk0007sf4ii6ja56fe",
+                "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                "activityType": "analysis",
+                "description": "Analyzed document: cash_flow",
+                "metadata": {
+                  "analysisId": "cmhzqjsdj0005sf4inczgnyjy",
+                  "documentId": "cmhzqg8r3000hsfh5mh3l6kyq",
+                  "analysisType": "full_analysis",
+                  "confidence": 100
+                },
+                "ipAddress": null,
+                "userAgent": null,
+                "createdAt": "2025-11-15T03:36:59.240Z"
+              },
+              {
+                "id": "cmhzqjm1w0003sf4io0lsijbo",
+                "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                "activityType": "analysis",
+                "description": "Analyzed document: income_statement",
+                "metadata": {
+                  "analysisId": "cmhzqjm1u0001sf4io5ibcbz1",
+                  "documentId": "cmhzqfzrs0009sfh5xp7tqine",
+                  "analysisType": "full_analysis",
+                  "confidence": 90
+                },
+                "ipAddress": null,
+                "userAgent": null,
+                "createdAt": "2025-11-15T03:36:51.044Z"
+              },
+              {
+                "id": "cmhzqicqo000fsfx07gcbxqeh",
+                "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                "activityType": "analysis",
+                "description": "Analyzed document: balance_sheet",
+                "metadata": {
+                  "analysisId": "cmhzqicqn000dsfx0v4851ike",
+                  "documentId": "cmhzqfr4c0001sfh50hpqjhmk",
+                  "analysisType": "full_analysis",
+                  "confidence": 100
+                },
+                "ipAddress": null,
+                "userAgent": null,
+                "createdAt": "2025-11-15T03:35:52.321Z"
+              },
+              {
+                "id": "cmhzqi7ng000bsfx09rbo8xhv",
+                "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                "activityType": "analysis",
+                "description": "Analyzed document: balance_sheet",
+                "metadata": {
+                  "analysisId": "cmhzqi7nf0009sfx0zv0y2lg0",
+                  "documentId": "cmhzqgkzk000psfh580jl8hg4",
+                  "analysisType": "full_analysis",
+                  "confidence": 60
+                },
+                "ipAddress": null,
+                "userAgent": null,
+                "createdAt": "2025-11-15T03:35:45.724Z"
+              }
+            ],
+            "lastUpdated": "2025-11-18T18:11:33.739Z"
+          }
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.739Z",
+      "warning": false
+    },
+    {
+      "category": "API",
+      "name": "Dashboard Metrics",
+      "passed": true,
+      "message": "Status: 200",
+      "details": {
+        "response": {
+          "success": true,
+          "metrics": {
+            "documentsAnalyzed": 4,
+            "documentTypes": [
+              "balance_sheet",
+              "cash_flow",
+              "income_statement"
+            ],
+            "avgConfidence": 87.5,
+            "completeness": 50,
+            "keyInsights": [
+              "Analyzed 4 documents across 3 categories",
+              "Strong data coverage with 50% completeness",
+              "Negative profit margin of -2.5% indicates operating losses"
+            ],
+            "warnings": [
+              "Operating at a loss - review cost structure and pricing strategy",
+              "Negative operating cash flow - monitor cash runway carefully"
+            ],
+            "recommendations": [
+              "Upload a balance sheet to track assets and financial position",
+              "Focus on margin improvement through cost optimization or pricing strategy"
+            ],
+            "operatingCashFlow": -155000,
+            "totalRevenue": 12350000,
+            "netIncome": -305000,
+            "oldestPeriod": "2024",
+            "latestPeriod": "2024",
+            "profitMargin": -2.4696356275303644
+          }
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.740Z",
+      "warning": false
+    },
+    {
+      "category": "API",
+      "name": "List Datasets",
+      "passed": false,
+      "message": "Status: 500",
+      "details": {
+        "response": {
+          "error": "Failed to fetch datasets"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.742Z",
+      "warning": false
+    },
+    {
+      "category": "API",
+      "name": "Active Dataset",
+      "passed": false,
+      "message": "Status: 500",
+      "details": {
+        "response": {
+          "error": "Failed to fetch active dataset"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.743Z",
+      "warning": false
+    },
+    {
+      "category": "API",
+      "name": "Reference Products",
+      "passed": false,
+      "message": "Status: 500",
+      "details": {
+        "response": {
+          "error": "Failed to fetch products"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.745Z",
+      "warning": false
+    },
+    {
+      "category": "API",
+      "name": "Reference Customers",
+      "passed": false,
+      "message": "Status: 500",
+      "details": {
+        "response": {
+          "error": "Failed to fetch customers"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.746Z",
+      "warning": false
+    },
+    {
+      "category": "API",
+      "name": "Storage Stats",
+      "passed": true,
+      "message": "Status: 200",
+      "details": {
+        "response": {
+          "success": true,
+          "stats": {
+            "storageUsed": "2227",
+            "storageQuota": "1073741824",
+            "storageUsedPercentage": 0.00020740553736686707,
+            "storageUsedFormatted": "0.00 MB",
+            "storageQuotaFormatted": "1 GB",
+            "documentCount": 4,
+            "analysisCount": 12
+          }
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.748Z",
+      "warning": false
+    },
+    {
+      "category": "API",
+      "name": "Insight Conflicts",
+      "passed": true,
+      "message": "Status: 200",
+      "details": {
+        "response": {
+          "success": true,
+          "conflicts": {
+            "hasConflicts": false,
+            "conflicts": []
+          }
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.749Z",
+      "warning": false
+    },
+    {
+      "category": "Errors",
+      "name": "404 Handling",
+      "passed": true,
+      "message": "Status: 404 (should return 404)",
+      "details": {
+        "response": {
+          "message": "Route GET:/nonexistent-endpoint not found",
+          "error": "Not Found",
+          "statusCode": 404
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.749Z",
+      "warning": false
+    },
+    {
+      "category": "Errors",
+      "name": "Invalid JSON",
+      "passed": true,
+      "message": "Status: 400 (should handle invalid JSON)",
+      "details": {
+        "response": {
+          "statusCode": 400,
+          "code": "FST_ERR_CTP_INVALID_JSON_BODY",
+          "error": "Bad Request",
+          "message": "Body is not valid JSON but content-type is set to 'application/json'"
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.750Z",
+      "warning": false
+    },
+    {
+      "category": "Errors",
+      "name": "SQL Injection Attempt",
+      "passed": true,
+      "message": "Status: 400 (should prevent SQL injection)",
+      "details": {
+        "response": {
+          "success": false,
+          "error": "Invalid user ID format. Only alphanumeric characters, underscores, and hyphens are allowed."
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.753Z",
+      "warning": false
+    },
+    {
+      "category": "Errors",
+      "name": "Path Traversal Attempt",
+      "passed": true,
+      "message": "Status: 404 (should prevent path traversal)",
+      "details": {
+        "response": {
+          "message": "Route GET:/etc/passwd not found",
+          "error": "Not Found",
+          "statusCode": 404
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.753Z",
+      "warning": false
+    },
+    {
+      "category": "Data",
+      "name": "User Isolation",
+      "passed": true,
+      "message": "Both users can access their own data",
+      "details": {
+        "user1": {
+          "success": true,
+          "documents": [
+            {
+              "id": "cmhzqgkzk000psfh580jl8hg4",
+              "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+              "filename": "test-empty.csv",
+              "originalName": "test-empty.csv",
+              "mimeType": "text/csv",
+              "fileSize": 0,
+              "documentType": "balance_sheet",
+              "filePath": "cmgtv2kjt0000sfzqb6d91ez0/1763177669695_test-empty.csv",
+              "fileHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "storageProvider": "local",
+              "storageKey": null,
+              "folderId": null,
+              "tags": null,
+              "description": null,
+              "status": "completed",
+              "processingError": null,
+              "processingProgress": 0,
+              "analysisResults": {
+                "success": true,
+                "documentType": "balance_sheet",
+                "extractedData": {
+                  "companyName": null,
+                  "period": null,
+                  "totalAssets": null,
+                  "currentAssets": null,
+                  "nonCurrentAssets": null,
+                  "totalLiabilities": null,
+                  "currentLiabilities": null,
+                  "nonCurrentLiabilities": null,
+                  "totalEquity": null,
+                  "retainedEarnings": null,
+                  "cash": null,
+                  "accountsReceivable": null,
+                  "inventory": null,
+                  "propertyPlantEquipment": null,
+                  "accountsPayable": null,
+                  "shortTermDebt": null,
+                  "longTermDebt": null,
+                  "commonStock": null
+                },
+                "validation": {
+                  "isValid": false,
+                  "missingFields": [
+                    "companyName",
+                    "totalAssets",
+                    "totalLiabilities",
+                    "totalEquity"
+                  ],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 0
+                },
+                "mathValidation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "errorDetection": {
+                  "isValid": false,
+                  "missingFields": [],
+                  "invalidFields": [
+                    "All fields are null, indicating missing or incomplete data extraction.",
+                    "Missing company name and period, which are essential for identifying the balance sheet."
+                  ],
+                  "warnings": [
+                    "The absence of values for totalAssets, totalLiabilities, and totalEquity makes it impossible to verify the balance sheet equation (Assets = Liabilities + Equity).",
+                    "Missing values for key components like cash, accounts receivable, and inventory, which are critical for assessing liquidity."
+                  ],
+                  "completeness": 100
+                },
+                "confidence": 60,
+                "recommendations": [
+                  "Missing required fields: companyName, totalAssets, totalLiabilities, totalEquity",
+                  "The absence of values for totalAssets, totalLiabilities, and totalEquity makes it impossible to verify the balance sheet equation (Assets = Liabilities + Equity).",
+                  "Missing values for key components like cash, accounts receivable, and inventory, which are critical for assessing liquidity."
+                ]
+              },
+              "isPublic": false,
+              "accessLevel": "private",
+              "sharedWith": null,
+              "version": 1,
+              "parentDocumentId": null,
+              "thumbnailPath": null,
+              "previewPath": null,
+              "createdAt": "2025-11-15T03:34:29.696Z",
+              "updatedAt": "2025-11-15T03:35:45.722Z",
+              "analyses": [
+                {
+                  "id": "cmhzqi7nf0009sfx0zv0y2lg0",
+                  "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                  "documentId": "cmhzqgkzk000psfh580jl8hg4",
+                  "analysisType": "full_analysis",
+                  "documentType": "balance_sheet",
+                  "businessContext": null,
+                  "questions": [],
+                  "answers": [],
+                  "confidence": 60,
+                  "companyName": null,
+                  "period": "2025-11-15T03:35:45.723Z",
+                  "analysisTimestamp": "2025-11-15T03:35:45.723Z",
+                  "createdAt": "2025-11-15T03:35:45.723Z",
+                  "updatedAt": "2025-11-15T03:35:45.723Z"
+                }
+              ]
+            },
+            {
+              "id": "cmhzqg8r3000hsfh5mh3l6kyq",
+              "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+              "filename": "kerbe_tech_cash_flow_2024.csv",
+              "originalName": "kerbe_tech_cash_flow_2024.csv",
+              "mimeType": "text/csv",
+              "fileSize": 779,
+              "documentType": "cash_flow",
+              "filePath": "cmgtv2kjt0000sfzqb6d91ez0/1763177653837_kerbe_tech_cash_flow_2024.csv",
+              "fileHash": "04c07f730044d68e5e1c83dd99cdfef1231667465d4c74b2a8364276e725f8bb",
+              "storageProvider": "local",
+              "storageKey": null,
+              "folderId": null,
+              "tags": null,
+              "description": null,
+              "status": "completed",
+              "processingError": null,
+              "processingProgress": 0,
+              "analysisResults": {
+                "success": true,
+                "documentType": "cash_flow",
+                "extractedData": {
+                  "companyName": "Kerbe Tech",
+                  "period": 2024,
+                  "operatingCashFlow": -155000,
+                  "investingCashFlow": -1000000,
+                  "financingCashFlow": 1300000,
+                  "netCashFlow": 145000
+                },
+                "validation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "mathValidation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "errorDetection": {
+                  "isValid": false,
+                  "missingFields": [],
+                  "invalidFields": [
+                    "The net cash flow calculation is incorrect. The sum of operating, investing, and financing cash flows (-155000 + -1000000 + 1300000) should equal the net cash flow, which is 145000. The correct net cash flow should be 145000, which matches the provided net cash flow, but the calculation should be verified.",
+                    "The net increase in cash (145000) does not match the difference between cash at the beginning of the period (2355000) and cash at the end of the period (2500000). The difference should be 145000, which matches the net increase, but the calculation should be verified."
+                  ],
+                  "warnings": [
+                    "The operating cash flow is negative, which might indicate operational issues or a temporary situation that should be investigated further.",
+                    "The investing cash flow is significantly negative, suggesting high capital expenditures, which could be a strategic investment or a potential cash drain.",
+                    "The financing cash flow is positive and large, indicating heavy reliance on external financing, which could be a risk if not managed properly."
+                  ],
+                  "completeness": 100
+                },
+                "confidence": 100,
+                "recommendations": [
+                  "The operating cash flow is negative, which might indicate operational issues or a temporary situation that should be investigated further.",
+                  "The investing cash flow is significantly negative, suggesting high capital expenditures, which could be a strategic investment or a potential cash drain.",
+                  "The financing cash flow is positive and large, indicating heavy reliance on external financing, which could be a risk if not managed properly."
+                ]
+              },
+              "isPublic": false,
+              "accessLevel": "private",
+              "sharedWith": null,
+              "version": 1,
+              "parentDocumentId": null,
+              "thumbnailPath": null,
+              "previewPath": null,
+              "createdAt": "2025-11-15T03:34:13.839Z",
+              "updatedAt": "2025-11-15T03:36:59.236Z",
+              "analyses": [
+                {
+                  "id": "cmhzqjsdj0005sf4inczgnyjy",
+                  "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                  "documentId": "cmhzqg8r3000hsfh5mh3l6kyq",
+                  "analysisType": "full_analysis",
+                  "documentType": "cash_flow",
+                  "businessContext": null,
+                  "questions": [],
+                  "answers": [],
+                  "confidence": 100,
+                  "companyName": "Kerbe Tech",
+                  "period": "2024",
+                  "analysisTimestamp": "2025-11-15T03:36:59.239Z",
+                  "createdAt": "2025-11-15T03:36:59.239Z",
+                  "updatedAt": "2025-11-15T03:36:59.239Z"
+                }
+              ]
+            },
+            {
+              "id": "cmhzqfzrs0009sfh5xp7tqine",
+              "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+              "filename": "kerbe_tech_income_statement_2024.csv",
+              "originalName": "kerbe_tech_income_statement_2024.csv",
+              "mimeType": "text/csv",
+              "fileSize": 675,
+              "documentType": "income_statement",
+              "filePath": "cmgtv2kjt0000sfzqb6d91ez0/1763177642198_kerbe_tech_income_statement_2024.csv",
+              "fileHash": "76eba362d621714083031f6e1ee0cd4e8b9c0b8b8b962c72e1b7334fa415f117",
+              "storageProvider": "local",
+              "storageKey": null,
+              "folderId": null,
+              "tags": null,
+              "description": null,
+              "status": "completed",
+              "processingError": null,
+              "processingProgress": 0,
+              "analysisResults": {
+                "success": true,
+                "documentType": "income_statement",
+                "extractedData": {
+                  "companyName": null,
+                  "period": 2024,
+                  "totalRevenue": 12350000,
+                  "netIncome": -305000,
+                  "grossProfit": 4150000,
+                  "operatingExpenses": 4350000,
+                  "operatingIncome": -200000,
+                  "interestExpense": -180000,
+                  "taxExpense": 0,
+                  "costOfGoodsSold": 8200000
+                },
+                "validation": {
+                  "isValid": false,
+                  "missingFields": [
+                    "companyName"
+                  ],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 66.66666666666666
+                },
+                "mathValidation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "errorDetection": {
+                  "isValid": false,
+                  "missingFields": [],
+                  "invalidFields": [
+                    "The 'companyName' field is null, which is critical information missing from the income statement.",
+                    "The 'interestExpense' in the Extracted Data is shown as -180000, which is correct as an expense, but the Original Text shows it as -180000, which is consistent. However, the 'interestIncome' and 'otherIncome' are not included in the Extracted Data, leading to a mismatch in 'Total Other Income (Expense)'.",
+                    "The 'operatingIncome' in the Extracted Data is -200000, which matches the Original Text, but the calculation should be verified: Gross Profit (4150000) - Operating Expenses (4350000) = -200000, which is correct.",
+                    "The 'netIncome' in the Extracted Data is -305000, which matches the Original Text, but the calculation should be verified: Operating Income (-200000) + Total Other Income (Expense) (-105000) = -305000, which is correct."
+                  ],
+                  "warnings": [
+                    "The 'period' is listed as 2024, which is a future date and should be verified for accuracy.",
+                    "The 'taxExpense' is 0, which might be unusual depending on the jurisdiction and tax regulations applicable to the company.",
+                    "The 'interestIncome' and 'otherIncome' are not included in the Extracted Data, which could lead to incomplete financial analysis."
+                  ],
+                  "completeness": 100
+                },
+                "confidence": 90,
+                "recommendations": [
+                  "Missing required fields: companyName",
+                  "The 'period' is listed as 2024, which is a future date and should be verified for accuracy.",
+                  "The 'taxExpense' is 0, which might be unusual depending on the jurisdiction and tax regulations applicable to the company.",
+                  "The 'interestIncome' and 'otherIncome' are not included in the Extracted Data, which could lead to incomplete financial analysis."
+                ]
+              },
+              "isPublic": false,
+              "accessLevel": "private",
+              "sharedWith": null,
+              "version": 1,
+              "parentDocumentId": null,
+              "thumbnailPath": null,
+              "previewPath": null,
+              "createdAt": "2025-11-15T03:34:02.201Z",
+              "updatedAt": "2025-11-15T03:36:51.040Z",
+              "analyses": [
+                {
+                  "id": "cmhzqjm1u0001sf4io5ibcbz1",
+                  "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                  "documentId": "cmhzqfzrs0009sfh5xp7tqine",
+                  "analysisType": "full_analysis",
+                  "documentType": "income_statement",
+                  "businessContext": null,
+                  "questions": [],
+                  "answers": [],
+                  "confidence": 90,
+                  "companyName": null,
+                  "period": "2024",
+                  "analysisTimestamp": "2025-11-15T03:36:51.043Z",
+                  "createdAt": "2025-11-15T03:36:51.043Z",
+                  "updatedAt": "2025-11-15T03:36:51.043Z"
+                }
+              ]
+            },
+            {
+              "id": "cmhzqfr4c0001sfh50hpqjhmk",
+              "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+              "filename": "kerbe_tech_balance_sheet_2024.csv",
+              "originalName": "kerbe_tech_balance_sheet_2024.csv",
+              "mimeType": "text/csv",
+              "fileSize": 773,
+              "documentType": "balance_sheet",
+              "filePath": "cmgtv2kjt0000sfzqb6d91ez0/1763177630986_kerbe_tech_balance_sheet_2024.csv",
+              "fileHash": "c8a7d72716be09e31887b716b6db30b7c3a1d72245b1ba548edab3454a705228",
+              "storageProvider": "local",
+              "storageKey": null,
+              "folderId": null,
+              "tags": null,
+              "description": null,
+              "status": "completed",
+              "processingError": null,
+              "processingProgress": 0,
+              "analysisResults": {
+                "success": true,
+                "documentType": "balance_sheet",
+                "extractedData": {
+                  "companyName": "Kerbe Tech",
+                  "period": 2024,
+                  "totalAssets": 19450000,
+                  "currentAssets": 5650000,
+                  "nonCurrentAssets": 13800000,
+                  "totalLiabilities": 8750000,
+                  "currentLiabilities": 2450000,
+                  "nonCurrentLiabilities": 6300000,
+                  "totalEquity": 10700000,
+                  "retainedEarnings": 5200000,
+                  "cash": 2500000,
+                  "accountsReceivable": 1800000,
+                  "inventory": 1200000,
+                  "propertyPlantEquipment": 8500000,
+                  "accountsPayable": 950000,
+                  "shortTermDebt": 1200000,
+                  "longTermDebt": 5500000,
+                  "commonStock": null
+                },
+                "validation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "mathValidation": {
+                  "isValid": true,
+                  "missingFields": [],
+                  "invalidFields": [],
+                  "warnings": [],
+                  "completeness": 100
+                },
+                "errorDetection": {
+                  "isValid": false,
+                  "missingFields": [],
+                  "invalidFields": [
+                    "The 'commonStock' field in the extracted data is null, but the original text lists 'Share Capital' as 5000000. This inconsistency needs to be resolved.",
+                    "The sum of 'currentLiabilities' (2450000) and 'nonCurrentLiabilities' (6300000) should equal 'totalLiabilities' (8750000), which it does. However, the breakdown of 'currentLiabilities' in the original text (Accounts Payable: 950000, Short-term Debt: 1200000, Accrued Expenses: 300000) sums to 2450000, which is correct, but the breakdown of 'nonCurrentLiabilities' (Long-term Debt: 5500000, Deferred Tax Liabilities: 800000) sums to 6300000, which is also correct. No error here, but ensure these values are accurate."
+                  ],
+                  "warnings": [
+                    "The 'retainedEarnings' value in the extracted data (5200000) matches the original text, but ensure this value is accurate as it significantly impacts 'totalEquity'.",
+                    "The 'Other Comprehensive Income' is listed as 500000 in the original text but is not included in the extracted data. Ensure this is intentional."
+                  ],
+                  "completeness": 100
+                },
+                "confidence": 100,
+                "recommendations": [
+                  "The 'retainedEarnings' value in the extracted data (5200000) matches the original text, but ensure this value is accurate as it significantly impacts 'totalEquity'.",
+                  "The 'Other Comprehensive Income' is listed as 500000 in the original text but is not included in the extracted data. Ensure this is intentional."
+                ]
+              },
+              "isPublic": false,
+              "accessLevel": "private",
+              "sharedWith": null,
+              "version": 1,
+              "parentDocumentId": null,
+              "thumbnailPath": null,
+              "previewPath": null,
+              "createdAt": "2025-11-15T03:33:50.988Z",
+              "updatedAt": "2025-11-15T03:37:17.003Z",
+              "analyses": [
+                {
+                  "id": "cmhzqk6310009sf4iujh4c2t6",
+                  "userId": "cmgtv2kjt0000sfzqb6d91ez0",
+                  "documentId": "cmhzqfr4c0001sfh50hpqjhmk",
+                  "analysisType": "full_analysis",
+                  "documentType": "balance_sheet",
+                  "businessContext": null,
+                  "questions": [],
+                  "answers": [],
+                  "confidence": 100,
+                  "companyName": "Kerbe Tech",
+                  "period": "2024",
+                  "analysisTimestamp": "2025-11-15T03:37:17.006Z",
+                  "createdAt": "2025-11-15T03:37:17.006Z",
+                  "updatedAt": "2025-11-15T03:37:17.006Z"
+                }
+              ]
+            }
+          ],
+          "total": 4
+        },
+        "user2": {
+          "success": true,
+          "documents": [],
+          "total": 0
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.756Z",
+      "warning": false
+    },
+    {
+      "category": "Data",
+      "name": "Chat History Isolation",
+      "passed": true,
+      "message": "Each user sees only their own chat history",
+      "details": {
+        "user1": {
+          "messages": [
+            {
+              "role": "user",
+              "content": "What is the total revenue?",
+              "createdAt": "2025-11-18T17:22:28.756Z"
+            },
+            {
+              "role": "assistant",
+              "content": "To determine the total revenue, I would need access to the company's Income Statement or any relevant financial documents that detail sales figures. The Income Statement typically lists total revenue as the sum of all sales and income generated by the company during a specific period.\n\nIf you have an Income Statement or any sales data available, please provide it, and I can help you calculate the total revenue. Alternatively, if you have any specific questions about revenue analysis or related financial metrics, feel free to ask!",
+              "createdAt": "2025-11-18T17:22:28.760Z"
+            },
+            {
+              "role": "user",
+              "content": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "createdAt": "2025-11-18T17:22:30.928Z"
+            },
+            {
+              "role": "assistant",
+              "content": "It seems like there was an error or an unintended input. If you have specific financial data or documents you would like me to analyze, such as an Income Statement to determine total revenue, please provide that information. I'm here to help with any financial analysis or business insights you need. Let me know how I can assist you!",
+              "createdAt": "2025-11-18T17:22:30.932Z"
+            },
+            {
+              "role": "user",
+              "content": "What is the total revenue?",
+              "createdAt": "2025-11-18T18:11:30.996Z"
+            },
+            {
+              "role": "assistant",
+              "content": "To accurately determine the total revenue, I would need access to the company's Income Statement or any relevant financial documents that detail sales figures. The total revenue is typically listed at the top of the Income Statement and includes all income generated from sales of goods or services before any expenses are deducted.\n\nIf you have an Income Statement or any sales data available, please share it, and I can help you calculate the total revenue. If you have any other questions or need further assistance, feel free to let me know!",
+              "createdAt": "2025-11-18T18:11:30.998Z"
+            },
+            {
+              "role": "user",
+              "content": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "createdAt": "2025-11-18T18:11:33.722Z"
+            },
+            {
+              "role": "assistant",
+              "content": "It seems like there was another unintended input. If you have specific financial data or documents you would like me to analyze, such as an Income Statement to determine total revenue, please provide that information. I'm here to help with any financial analysis or business insights you need. Let me know how I can assist you!",
+              "createdAt": "2025-11-18T18:11:33.724Z"
+            }
+          ]
+        },
+        "user2": {
+          "messages": []
+        }
+      },
+      "timestamp": "2025-11-18T18:11:33.757Z",
+      "warning": false
+    },
+    {
+      "category": "Performance",
+      "name": "Health Check Speed",
+      "passed": true,
+      "message": "Response time: 1ms",
+      "details": {
+        "duration": 1
+      },
+      "timestamp": "2025-11-18T18:11:33.758Z",
+      "warning": false
+    },
+    {
+      "category": "Performance",
+      "name": "Concurrent Requests",
+      "passed": true,
+      "message": "10 concurrent requests: 3ms",
+      "details": {
+        "duration": 3
+      },
+      "timestamp": "2025-11-18T18:11:33.761Z",
+      "warning": false
+    }
+  ],
+  "errors": []
+}

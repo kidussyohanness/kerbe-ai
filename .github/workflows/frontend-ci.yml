@@ -1,0 +1,40 @@
+name: Frontend CI & Migrate
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  migrate_and_build:
+    runs-on: ubuntu-latest
+    env:
+      NEXTAUTH_DATABASE_URL: ${{ secrets.NEXTAUTH_DATABASE_URL }}
+      NEXTAUTH_DIRECT_URL: ${{ secrets.NEXTAUTH_DIRECT_URL }}
+      NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+      AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
+      AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
+      AUTH_AZURE_AD_ID: ${{ secrets.AUTH_AZURE_AD_ID }}
+      AUTH_AZURE_AD_SECRET: ${{ secrets.AUTH_AZURE_AD_SECRET }}
+      AUTH_AZURE_AD_TENANT: ${{ secrets.AUTH_AZURE_AD_TENANT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install deps
+        run: npm ci
+        working-directory: analytics-platform-frontend
+      - name: Generate Prisma Client
+        run: npx prisma generate
+        working-directory: analytics-platform-frontend
+      - name: Run Prisma Migrate (direct URL)
+        run: PRISMA_MIGRATE_MAX_ADVISORY_LOCK_TIMEOUT=60000 npx prisma migrate deploy --schema prisma/schema.prisma
+        working-directory: analytics-platform-frontend
+      - name: Build
+        run: npm run build
+        working-directory: analytics-platform-frontend
+
