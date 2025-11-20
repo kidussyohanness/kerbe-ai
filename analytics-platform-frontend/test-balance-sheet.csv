@@ -1,0 +1,26 @@
+Company Name,Acme Tech Solutions Inc.
+Period,Q1 2024
+Date,2024-03-31
+
+ASSETS
+Total Assets,50000000
+Current Assets,20000000
+  Cash,5000000
+  Accounts Receivable,8000000
+  Inventory,7000000
+Non-Current Assets,30000000
+  Property Plant Equipment,25000000
+  Other Assets,5000000
+
+LIABILITIES
+Total Liabilities,30000000
+Current Liabilities,15000000
+  Accounts Payable,6000000
+  Short Term Debt,9000000
+Non-Current Liabilities,15000000
+  Long Term Debt,15000000
+
+EQUITY
+Total Equity,20000000
+  Common Stock,10000000
+  Retained Earnings,10000000

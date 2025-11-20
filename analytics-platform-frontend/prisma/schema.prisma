@@ -1,0 +1,285 @@
+// Unified Prisma Schema for KERBÉ AI MVP
+// Frontend uses the same schema as backend - both point to unified database
+// Database location: analytics-platform-backend/prisma/dev.db
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL") // Points to backend database: "file:../../analytics-platform-backend/prisma/dev.db"
+}
+
+// ============================================================================
+// NEXT AUTH MODELS (Authentication & Session Management)
+// ============================================================================
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation("AuthAccounts", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation("AuthSessions", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+// ============================================================================
+// USER MANAGEMENT
+// ============================================================================
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  googleId      String?   @unique
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  // User preferences and settings
+  preferences   UserPreferences?
+  
+  // User's uploaded documents and analyses
+  documents     UserDocument[]
+  analyses      UserAnalysis[]
+  folders       UserFolder[]
+  
+  // User activity tracking
+  activityLogs  UserActivityLog[]
+  
+  // NextAuth relations
+  accounts      Account[] @relation("AuthAccounts")
+  sessions      Session[] @relation("AuthSessions")
+
+  @@map("users")
+}
+
+model UserPreferences {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Display preferences
+  theme           String   @default("light") // "light" | "dark" | "auto"
+  language        String   @default("en")
+  timezone        String   @default("UTC")
+  
+  // Notification preferences
+  emailNotifications Boolean @default(true)
+  analysisComplete   Boolean @default(true)
+  weeklyReports      Boolean @default(false)
+  
+  // Analysis preferences
+  defaultDocumentType String? // Preferred document type
+  autoAnalysis        Boolean  @default(true)
+  
+  // File management preferences
+  defaultFolder       String?  // Default folder for new uploads
+  autoOrganize        Boolean  @default(false) // Auto-organize by document type
+  fileNamingConvention String  @default("original") // "original" | "timestamp" | "custom"
+  maxFileSize         Int      @default(10485760) // 10MB default
+  
+  // Upload preferences
+  chunkSize           Int      @default(1048576) // 1MB chunks
+  concurrentUploads   Int      @default(3) // Max concurrent uploads
+  retryAttempts       Int      @default(3) // Upload retry attempts
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("user_preferences")
+}
+
+model UserFolder {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Folder metadata
+  name            String
+  description     String?
+  parentFolderId  String?
+  parentFolder    UserFolder? @relation("FolderHierarchy", fields: [parentFolderId], references: [id])
+  subfolders      UserFolder[] @relation("FolderHierarchy")
+  
+  // Folder organization
+  color           String?  // Hex color for UI
+  icon            String?  // Icon identifier
+  
+  // Access control
+  isShared        Boolean  @default(false)
+  sharedWith      String?  // JSON array of user IDs
+  
+  // Folder contents
+  documents       UserDocument[]
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@index([userId])
+  @@index([parentFolderId])
+  @@map("user_folders")
+}
+
+// ============================================================================
+// DOCUMENT MANAGEMENT
+// ============================================================================
+
+model UserDocument {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Document metadata
+  filename        String
+  originalName    String
+  mimeType        String
+  fileSize        Int
+  documentType    String   // "balance_sheet" | "income_statement" | "cash_flow" | etc.
+  
+  // File storage
+  filePath        String?  // Path to stored file (relative from uploads/)
+  fileHash        String?  // SHA-256 hash for deduplication
+  storageProvider String   @default("local") // "local" | "s3" | "gcs" | "azure"
+  storageKey      String?  // Key for cloud storage
+  
+  // File organization
+  folderId        String?  // Optional folder organization
+  folder          UserFolder? @relation(fields: [folderId], references: [id])
+  tags            String?  // JSON array of tags
+  description     String?  // User-provided description
+  
+  // Processing status
+  status          String   @default("uploaded") // "uploaded" | "processing" | "completed" | "failed" | "archived"
+  processingError String?
+  processingProgress Int   @default(0) // 0-100 percentage
+  
+  // Analysis results (stored as JSON for flexibility)
+  analysisResults Json?    // Store the complete analysis results as JSON
+  
+  // File security & access
+  isPublic        Boolean  @default(false)
+  accessLevel     String   @default("private") // "private" | "shared" | "public"
+  sharedWith      String?  // JSON array of user IDs who have access
+  
+  // File versioning
+  version         Int      @default(1)
+  parentDocumentId String? // For versioning
+  parentDocument  UserDocument? @relation("DocumentVersions", fields: [parentDocumentId], references: [id])
+  versions        UserDocument[] @relation("DocumentVersions")
+  
+  // Related analyses
+  analyses        UserAnalysis[]
+  
+  // File thumbnails and previews
+  thumbnailPath   String?
+  previewPath     String?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@index([userId, status])
+  @@index([userId, documentType])
+  @@index([fileHash])
+  @@index([createdAt])
+  @@map("user_documents")
+}
+
+// ============================================================================
+// ANALYSIS & CHAT
+// ============================================================================
+
+model UserAnalysis {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  documentId      String?
+  document        UserDocument? @relation(fields: [documentId], references: [id])
+  
+  // Analysis metadata
+  analysisType    String   // "question_analysis" | "enhanced_analysis" | etc.
+  documentType    String
+  businessContext String?
+  
+  // Analysis results
+  questions       Json     // Array of questions asked
+  answers         Json     // Array of answers received
+  confidence      Float?
+  
+  // Analysis metadata
+  companyName     String?
+  period          String?
+  analysisTimestamp DateTime @default(now())
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("user_analyses")
+}
+
+model ChatMessage {
+  id         String   @id @default(cuid())
+  userId     String   // User who sent/received the message
+  role       String   // 'user' | 'assistant'
+  content    String
+  metadata   Json?    // Additional message metadata (document references, etc.)
+  createdAt  DateTime @default(now())
+
+  @@index([userId, createdAt])
+  @@map("chat_messages")
+}
+
+// ============================================================================
+// ACTIVITY TRACKING
+// ============================================================================
+
+model UserActivityLog {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Activity details
+  activityType    String   // "login" | "upload" | "analysis" | "download" | etc.
+  description     String
+  metadata        Json?    // Additional activity data
+  
+  // Request details
+  ipAddress       String?
+  userAgent       String?
+  
+  createdAt       DateTime @default(now())
+  
+  @@index([userId, createdAt])
+  @@map("user_activity_logs")
+}

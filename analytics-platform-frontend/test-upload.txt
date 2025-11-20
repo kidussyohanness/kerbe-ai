@@ -1,0 +1,9 @@
+This is a test file for the KERBÉ AI file management system.
+
+File Details:
+- Name: test-upload.txt
+- Type: Text Document
+- Purpose: Testing file upload functionality
+- Created: September 29, 2025
+
+You can use this file to test the upload functionality in the dashboard.
