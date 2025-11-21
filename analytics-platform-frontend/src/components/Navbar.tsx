@@ -1,11 +1,19 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 import LiquidGlassLogo from './LiquidGlassLogo';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  const { data: session } = useSession();
+
+  // Reset image error when session changes
+  useEffect(() => {
+    setImageError(false);
+  }, [session?.user?.image]);
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -40,16 +48,39 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* Login Button */}
+          {/* Login Button or User Profile */}
           <div className="hidden md:block">
-            <Link
-              href="/signin"
-              className="group glass-button glass-blue inline-flex items-center gap-2
-                        px-5 py-2 rounded-xl text-text-primary font-semibold
-                        hover-lift focus-ring transition-all duration-300"
-            >
-              <span>Login</span>
-            </Link>
+            {session?.user ? (
+              <Link
+                href="/dashboard"
+                className="group glass-button glass-blue inline-flex items-center gap-3
+                          px-5 py-2 rounded-xl text-text-primary font-semibold
+                          hover-lift focus-ring transition-all duration-300"
+              >
+                {session.user.image && !imageError ? (
+                  <img
+                    src={session.user.image}
+                    alt={session.user.name || 'User'}
+                    className="w-8 h-8 rounded-full object-cover border-2 border-white/20 group-hover:border-accent-orange/50 transition-colors"
+                    onError={() => setImageError(true)}
+                  />
+                ) : (
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent-blue to-accent-purple flex items-center justify-center text-white font-bold text-sm">
+                    {session.user.name?.charAt(0)?.toUpperCase() || 'U'}
+                  </div>
+                )}
+                <span>My Dashboard</span>
+              </Link>
+            ) : (
+              <Link
+                href="/signin"
+                className="group glass-button glass-blue inline-flex items-center gap-2
+                          px-5 py-2 rounded-xl text-text-primary font-semibold
+                          hover-lift focus-ring transition-all duration-300"
+              >
+                <span>Login</span>
+              </Link>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -84,15 +115,39 @@ const Navbar: React.FC = () => {
                 </a>
               ))}
               <div className="pt-4">
-                <Link
-                  href="/signin"
-                  className="glass-button glass-gradient px-6 py-2 text-text-primary font-semibold hover-lift shadow-glow-gradient transition-all duration-300 block text-center"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <span className="flex items-center justify-center space-x-2">
-                    <span>Login</span>
-                  </span>
-                </Link>
+                {session?.user ? (
+                  <Link
+                    href="/dashboard"
+                    className="glass-button glass-gradient px-6 py-2 text-text-primary font-semibold hover-lift shadow-glow-gradient transition-all duration-300 block text-center"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <span className="flex items-center justify-center space-x-3">
+                      {session.user.image && !imageError ? (
+                        <img
+                          src={session.user.image}
+                          alt={session.user.name || 'User'}
+                          className="w-8 h-8 rounded-full object-cover border-2 border-white/20"
+                          onError={() => setImageError(true)}
+                        />
+                      ) : (
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent-blue to-accent-purple flex items-center justify-center text-white font-bold text-sm">
+                          {session.user.name?.charAt(0)?.toUpperCase() || 'U'}
+                        </div>
+                      )}
+                      <span>My Dashboard</span>
+                    </span>
+                  </Link>
+                ) : (
+                  <Link
+                    href="/signin"
+                    className="glass-button glass-gradient px-6 py-2 text-text-primary font-semibold hover-lift shadow-glow-gradient transition-all duration-300 block text-center"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <span className="flex items-center justify-center space-x-2">
+                      <span>Login</span>
+                    </span>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

@@ -10,15 +10,23 @@ import ParticleSystem from "@/components/ui/ParticleSystem";
 // Lazy load sections for better performance
 const HeroSection = lazy(() => import("@/components/sections/HeroSection"));
 const HowItWorksSection = lazy(() => import("@/components/sections/HowItWorksSection"));
+const StatsSection = lazy(() => import("@/components/sections/StatsSection"));
+const DocumentTypesSection = lazy(() => import("@/components/sections/DocumentTypesSection"));
+const AICapabilitiesSection = lazy(() => import("@/components/sections/AICapabilitiesSection"));
 const FeaturesSection = lazy(() => import("@/components/sections/FeaturesSection"));
+const UseCasesSection = lazy(() => import("@/components/sections/UseCasesSection"));
 const CTASection = lazy(() => import("@/components/sections/CTASection"));
 const ContactSection = lazy(() => import("@/components/sections/ContactSection"));
 
 // Import content constants
 import { 
   HERO_CONTENT, 
-  HOW_IT_WORKS_CONTENT, 
-  FEATURES_CONTENT, 
+  HOW_IT_WORKS_CONTENT,
+  STATS_CONTENT,
+  DOCUMENT_TYPES_CONTENT,
+  AI_CAPABILITIES_CONTENT,
+  FEATURES_CONTENT,
+  USE_CASES_CONTENT,
   CTA_CONTENT, 
   CONTACT_CONTENT 
 } from "@/constants/content";
@@ -39,6 +47,13 @@ export default function Home() {
         </LazySection>
       </SectionErrorBoundary>
 
+      {/* Stats Section */}
+      <SectionErrorBoundary sectionName="Stats">
+        <LazySection>
+          <StatsSection {...STATS_CONTENT} />
+        </LazySection>
+      </SectionErrorBoundary>
+
       {/* How It Works Section */}
       <SectionErrorBoundary sectionName="How It Works">
         <LazySection>
@@ -46,14 +61,31 @@ export default function Home() {
         </LazySection>
       </SectionErrorBoundary>
 
+      {/* Document Types Section */}
+      <SectionErrorBoundary sectionName="Document Types">
+        <LazySection>
+          <DocumentTypesSection {...DOCUMENT_TYPES_CONTENT} />
+        </LazySection>
+      </SectionErrorBoundary>
+
+      {/* AI Capabilities Section */}
+      <SectionErrorBoundary sectionName="AI Capabilities">
+        <LazySection>
+          <AICapabilitiesSection {...AI_CAPABILITIES_CONTENT} />
+        </LazySection>
+      </SectionErrorBoundary>
+
       {/* Features Section */}
       <SectionErrorBoundary sectionName="Features">
         <LazySection>
-          <div className="py-20 px-8 relative z-10">
-            <div className="max-w-6xl mx-auto">
-              <FeaturesSection {...FEATURES_CONTENT} />
-            </div>
-          </div>
+          <FeaturesSection {...FEATURES_CONTENT} />
+        </LazySection>
+      </SectionErrorBoundary>
+
+      {/* Use Cases Section */}
+      <SectionErrorBoundary sectionName="Use Cases">
+        <LazySection>
+          <UseCasesSection {...USE_CASES_CONTENT} />
         </LazySection>
       </SectionErrorBoundary>
 

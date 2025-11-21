@@ -409,6 +409,15 @@ body {
   color: var(--text-primary);
 }
 
+/* 3D Carousel Styles */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .glass-container,
@@ -418,6 +427,10 @@ body {
   
   .glass-blur {
     --glass-blur: 15px;
+  }
+  
+  .perspective-1000 {
+    perspective: 800px;
   }
 }
 

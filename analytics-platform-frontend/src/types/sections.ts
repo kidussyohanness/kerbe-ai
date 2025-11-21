@@ -27,6 +27,7 @@ export interface HowItWorksSectionProps extends SectionProps {
 export interface Feature {
   title: string;
   description: string;
+  icon?: string;
 }
 
 export interface FeaturesSectionProps extends SectionProps {
@@ -44,4 +45,53 @@ export interface CTASectionProps extends SectionProps {
 export interface ContactSectionProps extends SectionProps {
   title: string;
   description: string;
+}
+
+export interface Stat {
+  value: string;
+  label: string;
+  description: string;
+}
+
+export interface StatsSectionProps extends SectionProps {
+  title: string;
+  stats: Stat[];
+}
+
+export interface DocumentType {
+  name: string;
+  icon: string;
+  description: string;
+  features: string[];
+}
+
+export interface DocumentTypesSectionProps extends SectionProps {
+  title: string;
+  subtitle: string;
+  documentTypes: DocumentType[];
+}
+
+export interface AICapability {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface AICapabilitiesSectionProps extends SectionProps {
+  title: string;
+  subtitle: string;
+  capabilities: AICapability[];
+}
+
+export interface UseCase {
+  title: string;
+  description: string;
+  icon: string;
+  benefit: string;
+}
+
+export interface UseCasesSectionProps extends SectionProps {
+  title: string;
+  subtitle: string;
+  useCases: UseCase[];
 }
